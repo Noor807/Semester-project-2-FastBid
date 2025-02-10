@@ -15,7 +15,7 @@ export default async function router(pathname = window.location.pathname) {
       case "/auth/register/":
         await import("./views/register.js");
         break;
-      case "/post/":
+      case "/post/index.html":
         await import("./views/post.js");
         break;
       case "/post/edit/":

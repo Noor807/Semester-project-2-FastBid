@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/app.js"></script>
+  </head>
+
+  <body class="bg-gray-50 font-sans">
+    <header>
+      <div
+        class="navbar bg-cyan-600 p-4 flex justify-between w-full fixed top-0 z-10 items-center"
+      >
+        <!-- Logo -->
+        <a href="/" class="text-white">
+          <img
+            class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
+            src="/public/imgs/Screenshot 2025-01-29 at 15.46.32 2.png"
+            alt="noroff logo"
+          />
+        </a>
+
+        <!-- Hamburger Menu for Small Screens -->
+        <div class="lg:hidden flex items-center">
+          <button id="hamburger-btn" class="text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul
+          id="navbar-links"
+          class="lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 hidden space-y-4 top-[100%] bg-cyan-600 right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex flex-col justify-center"
+        >
+          <li>
+            <a href="/profile/" class="text-white font-semibold hover:underline"
+              >My Profile</a
+            >
+          </li>
+          <li>
+            <a
+              href="/post/create/"
+              class="text-white font-semibold hover:underline"
+              >Create Post</a
+            >
+          </li>
+          <li>
+            <button
+              id="logout-Btn"
+              type="button"
+              class="bg-yellow-700 text-white py-1 px-4 font-semibold rounded-md hover:bg-orange-500 transition"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="blog-brief px-4 py-6 mt-20 md:mt-40">
+      <h1
+        class="text-4xl sm:text-3xl md:text-4xl mt-12 mb-16 font-semibold text-center text-gray-800 border-b-2"
+      >
+        Single Auction post
+      </h1>
+
+      <!-- Post container -->
+      <div id="AuctionDetailContainer">
+        <!-- The auction details will be rendered here by JavaScript -->
+      </div>
+
+      <!-- Edit and Delete buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+        <button
+          class="edit-btn admin-hidden font-semibold bg-orange-500 text-black py-2 px-4 rounded-md hover:bg-orange-400 transition duration-200"
+        >
+          Edit post
+        </button>
+        <button
+          class="del-btn admin-hidden bg-gray-300 border-2 border-solid border-orange-500 text-black py-2 px-4 rounded-md font-semibold hover:bg-orange-300 transition duration-200"
+        >
+          Delete post
+        </button>
+      </div>
+    </main>
+    <footer class="bg-cyan-600 text-white text-center py-4 mt-8">
+      <p>&copy; 2025 Social blogify. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
