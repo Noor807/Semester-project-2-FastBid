@@ -24,6 +24,7 @@ navbarLinks.classList.toggle("hidden");
 /**
  * Fetches auction listings with authentication and renders them to the DOM.
  */
+
  async function fetchAndRenderAuctions() {
     try {
       // Fetch the auction data with authentication

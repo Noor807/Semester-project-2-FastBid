@@ -14,90 +14,98 @@
  *   @param {Array<string>} [array[].tags=[]] - Tags associated with the auction.
  */
 
+// renderAuctionPosts.js
+
 export function renderAuctionPosts(auctions) {
-    const listingsContainer = document.getElementById("auctionContainer");  // Assuming you have a container for the listings
+  const listingsContainer = document.getElementById("auctionContainer");  // Assuming you have a container for the listings
   
-    auctions.forEach((auction) => {
-      // Create the outer div for listing card
-      const listingCard = document.createElement("div");
-      listingCard.className = "listing-card cursor-pointer";
-      listingCard.addEventListener("click" , ()=> {
-        window.location.href = `/post/index.html?singleList=${auction.id}`
-      })
-  
-      // Create a wrapper div for the image
-      const imageWrapper = document.createElement("div");
-      imageWrapper.className = "image-wrapper"; // You can add custom styles for this class
-  
-      // Create and set the image
-      const img = document.createElement("img");
-      img.src = auction.media[0]?.url || "";  // Fallback if no media is available
-      img.alt = auction.media[0]?.alt || "Auction Image";
-      imageWrapper.appendChild(img); // Add image inside the wrapper div
-  
-      listingCard.appendChild(imageWrapper); // Add image wrapper to listing card
-  
-      // Create inner div for the content
-      const contentDiv = document.createElement("div");
-  
-      // Create the top section (title and category)
-      const topDiv = document.createElement("div");
-      topDiv.id = "top";
-      const title = document.createElement("h2");
-      title.textContent = auction.title;
-      topDiv.appendChild(title);
-      const category = document.createElement("h3");
-      category.textContent = auction.tags[0] || "Unknown Category";  // Fallback for category
-      topDiv.appendChild(category);
-      contentDiv.appendChild(topDiv);
-  
-      // Create the middle section (current price and bids)
-      const middleDiv = document.createElement("div");
-      middleDiv.className = "flex justify-between";
-      middleDiv.id = "middle";
-      const currentPrice = document.createElement("p");
-      currentPrice.textContent = `Current Price: $${auction.price || "0.00"}`;  // Assuming auction price exists
-      middleDiv.appendChild(currentPrice);
-      const bidsLink = document.createElement("a");
-      bidsLink.className = "x-2 y-2 font-semibold rounded-sm text-blue-700";
-      bidsLink.href = `/auction/${auction.id}`;  // Assuming auction link goes to a single auction page
-      bidsLink.textContent = `Bids: ${auction._count?.bids || 0}`;
-      middleDiv.appendChild(bidsLink);
-      contentDiv.appendChild(middleDiv);
-  
-      // Create the bottom section (created, updated, endsAt, shipping)
-      const bottomDiv = document.createElement("div");
-      bottomDiv.className = "flex justify-between items-end";
-      bottomDiv.id = "bottom";
-      const timeDiv = document.createElement("div");
-      timeDiv.className = "flex flex-col";
-  
-      const createdP = document.createElement("p");
-      createdP.textContent = `Created: ${new Date(auction.created).toLocaleDateString()}`;
-      timeDiv.appendChild(createdP);
-  
-      const updatedP = document.createElement("p");
-      updatedP.textContent = `Updated: ${new Date(auction.updated).toLocaleDateString()}`;
-      timeDiv.appendChild(updatedP);
-  
-      const endsAtP = document.createElement("p");
-      endsAtP.textContent = `Ends At: ${new Date(auction.endsAt).toLocaleDateString()}`;
-      timeDiv.appendChild(endsAtP);
-  
-      bottomDiv.appendChild(timeDiv);
-  
-      // Free shipping info
-      const shippingP = document.createElement("p");
-      shippingP.textContent = auction.freeShipping ? "Free Shipping" : "Shipping Costs Apply";
-      bottomDiv.appendChild(shippingP);
-  
-      contentDiv.appendChild(bottomDiv);
-  
-      // Append the content div to the listing card
-      listingCard.appendChild(contentDiv);
-  
-      // Append the listing card to the listings container
-      listingsContainer.appendChild(listingCard);
+  auctions.forEach((auction) => {
+    // Create the outer div for listing card
+    const listingCard = document.createElement("div");
+    listingCard.className = "listing-card cursor-pointer p-4 border-2 border-black-600 rounded-lg shadow-md transition-transform transform hover:scale-105"; // Added padding, border, and hover effects
+    listingCard.addEventListener("click", () => {
+      window.location.href = `/post/index.html?singleList=${auction.id}`;
     });
-  }
-  
+
+    // Create a wrapper div for the image
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "image-wrapper mb-4"; // Spacing between image and content
+    
+    // Create and set the image
+    const img = document.createElement("img");
+    img.src = auction.media[0]?.url || "";  // Fallback if no media is available
+    img.alt = auction.media[0]?.alt || " Image";
+    img.className = "w-full h-48 object-cover rounded-md"; // Full width, fixed height, rounded corners, and object-cover
+
+    imageWrapper.appendChild(img); // Add image inside the wrapper div
+    listingCard.appendChild(imageWrapper); // Add image wrapper to listing card
+
+    // Create inner div for the content
+    const contentDiv = document.createElement("div");
+
+    // Create the top section (title and category)
+    const topDiv = document.createElement("div");
+    topDiv.className = "mb-4";  // Margin bottom for spacing between sections
+    const title = document.createElement("h2");
+    title.textContent = auction.title;
+    title.className = " font-bold text-gray-900"; // Title styling
+    topDiv.appendChild(title);
+    const category = document.createElement("h3");
+    category.textContent = auction.tags[0] || "Unknown Category";  // Fallback for category
+    category.className = " text-gray-600"; // Category styling
+    topDiv.appendChild(category);
+    contentDiv.appendChild(topDiv);
+
+    // Create the middle section (current price and bids)
+    const middleDiv = document.createElement("div");
+    middleDiv.className = "flex justify-between items-center"; // Flexbox for left-right alignment
+    const currentPrice = document.createElement("p");
+    currentPrice.textContent = `Current Price: $${auction.price || "0.00"}`;  // Assuming auction price exists
+    currentPrice.className = " font-semibold text-gray-900"; // Price styling
+    middleDiv.appendChild(currentPrice);
+
+    const bidsLink = document.createElement("a");
+    bidsLink.className = "text-blue-600 hover:underline"; // Link styling with hover effect
+    bidsLink.href = `/auction/${auction.id}`;  // Assuming auction link goes to a single auction page
+    bidsLink.textContent = `Bids: ${auction._count?.bids || 0}`;
+    middleDiv.appendChild(bidsLink);
+    contentDiv.appendChild(middleDiv);
+
+    // Create the bottom section (created, updated, endsAt, shipping)
+    const bottomDiv = document.createElement("div");
+    bottomDiv.className = "flex justify-between items-end mt-4";  // Flexbox with margin-top for spacing
+    const timeDiv = document.createElement("div");
+    timeDiv.className = "flex flex-col";  // Stack the time-related info
+
+    const createdP = document.createElement("p");
+    createdP.textContent = `Created: ${new Date(auction.created).toLocaleDateString()}`;
+    createdP.className = " text-gray-600"; // Time info styling
+    timeDiv.appendChild(createdP);
+
+    const updatedP = document.createElement("p");
+    updatedP.textContent = `Updated: ${new Date(auction.updated).toLocaleDateString()}`;
+    updatedP.className = " text-gray-600"; // Time info styling
+    timeDiv.appendChild(updatedP);
+
+    const endsAtP = document.createElement("p");
+    endsAtP.textContent = `Ends At: ${new Date(auction.endsAt).toLocaleDateString()}`;
+    endsAtP.className = " text-gray-600"; // Time info styling
+    timeDiv.appendChild(endsAtP);
+
+    bottomDiv.appendChild(timeDiv);
+
+    // Free shipping info
+    const shippingP = document.createElement("p");
+    shippingP.textContent = auction.freeShipping ? "Free Shipping" : "Shipping Costs Apply";
+    shippingP.className = " text-black-600"; // Shipping info styling
+    bottomDiv.appendChild(shippingP);
+
+    contentDiv.appendChild(bottomDiv);
+
+    // Append the content div to the listing card
+    listingCard.appendChild(contentDiv);
+
+    // Append the listing card to the listings container
+    listingsContainer.appendChild(listingCard);
+  });
+}

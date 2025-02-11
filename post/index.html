@@ -2,22 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff FED2 JS2 CA</title>
+    <title>Document</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Open+Sans:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <script type="module" src="/src/app.js"></script>
   </head>
-
-  <body class="bg-gray-50 font-sans">
+  <body class="font-custom min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header>
       <div
-        class="navbar bg-cyan-600 p-4 flex justify-between w-full fixed top-0 z-10 items-center"
+        class="navbar bg-dark-pink p-4 flex justify-between w-full fixed top-0 z-10 items-center"
       >
-        <!-- Logo -->
+        <!-- Logo  -->
         <a href="/" class="text-white">
           <img
             class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
@@ -25,8 +23,7 @@
             alt="noroff logo"
           />
         </a>
-
-        <!-- Hamburger Menu for Small Screens -->
+        <!-- Hamburger Menu for Small Screens  -->
         <div class="lg:hidden flex items-center">
           <button id="hamburger-btn" class="text-white">
             <svg
@@ -45,11 +42,10 @@
             </svg>
           </button>
         </div>
-
         <!-- Navigation Links -->
         <ul
           id="navbar-links"
-          class="lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 hidden space-y-4 top-[100%] bg-cyan-600 right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex flex-col justify-center"
+          class="lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 hidden space-y-4 top-[100%] bg-dark-pink right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex flex-col justify-center"
         >
           <li>
             <a href="/profile/" class="text-white font-semibold hover:underline"
@@ -78,7 +74,7 @@
 
     <main class="blog-brief px-4 py-6 mt-20 md:mt-40">
       <h1
-        class="text-4xl sm:text-3xl md:text-4xl mt-12 mb-16 font-semibold text-center text-gray-800 border-b-2"
+        class="text-4xl sm:text-3xl md:text-4xl mt-12 mb-16 font-bold text-center text-gray-800 border-b-2"
       >
         Single Auction post
       </h1>
@@ -91,19 +87,51 @@
       <!-- Edit and Delete buttons -->
       <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
         <button
-          class="edit-btn admin-hidden font-semibold bg-orange-500 text-black py-2 px-4 rounded-md hover:bg-orange-400 transition duration-200"
+          class="edit-btn admin-hidden border-2 border-solid border-orange-500 font-semibold bg-blue-gray text-white py-2 px-4 rounded-md hover:bg-orange-400 transition duration-200"
         >
           Edit post
         </button>
         <button
-          class="del-btn admin-hidden bg-gray-300 border-2 border-solid border-orange-500 text-black py-2 px-4 rounded-md font-semibold hover:bg-orange-300 transition duration-200"
+          class="del-btn admin-hidden bg-blue-gray border-2 border-solid border-orange-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-orange-300 transition duration-200"
         >
           Delete post
         </button>
       </div>
     </main>
-    <footer class="bg-cyan-600 text-white text-center py-4 mt-8">
-      <p>&copy; 2025 Social blogify. All Rights Reserved.</p>
+   <footer class="bg-dark-pink text-bright-blue gap-5 py-8">
+      <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
+        <!-- First div: Privacy policy and About Us -->
+        <div class="flex flex-col md:flex-col mb-6 md:mb-0 space-y-2 md:space-y-0 md:space-x-8 text-center md:text-left">
+          <a class="underline text-bright-blue" href="">Privacy Policy</a>
+          <a class="underline text-bright-blue" href="">About Us</a>
+        </div>
+
+        <!-- Second div: Contact Us info -->
+        <div class="text-center md:text-left">
+          <p class="underline">Contact Us</p>
+          <p>+123456789</p>
+          <p>info@fastbid.com</p>
+        </div>
+      </div>
+
+      <!-- Divider line (white) -->
+      <div class="border-t border-white my-4"></div>
+
+      <!-- Image centered underneath the divider -->
+      <div class="flex justify-center my-4">
+        <img class="max-w-[200px] md:max-w-[300px]" src="/public/imgs/Group 361.png" alt="Group Image" />
+      </div>
+
+      <!-- Logo (left) -->
+      <div class="mt-10 flex gap-10 left-0 bottom-0 ml-5 mb-2">
+        <img
+          class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
+          src="/public/imgs/Screenshot 2025-01-29 at 15.46.32 2.png"
+          alt="Logo"
+        />
+      </div>
+      <!-- Copyright -->
+      <p class="text-center text-white mt-4">Copyright © 1995-2025 FastBid. All Rights Reserved</p>
     </footer>
   </body>
 </html>
