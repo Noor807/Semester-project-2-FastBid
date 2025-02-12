@@ -14,6 +14,8 @@ export async function onLogin(event) {
       email,
       password,
     });
+    localStorage.setItem('verify_user', 'true')
+    
     alert("login successfully");
 
     window.location.href = "/";

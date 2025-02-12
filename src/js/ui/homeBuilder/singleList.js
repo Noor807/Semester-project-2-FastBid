@@ -1,36 +1,3 @@
-import { API_AUCTION } from "../../api/constants";
-import { fetchSingleAuction } from "../../api/list/singleListRead";
-
-fetchSingleAuction;
-
-// Function to fetch auction details and render them on the page
-export async function fetchAndRenderSingleAuction(auctionId) {
-  try {
-    // Fetch auction listing by ID from the API
-    const response = await fetch(`${API_AUCTION}/${auctionId}`);
-
-    // Check if the response is ok (status 200-299)
-    if (!response.ok) {
-      throw new Error(`Failed to fetch auction with ID: ${auctionId}`);
-    }
-
-    // Parse the JSON response to get the auction data
-    const auctionResponse = await response.json();
-
-    // Check if the response structure matches the expected format
-    if (!auctionResponse.data) {
-      throw new Error(
-        `Invalid response format for auction with ID: ${auctionId}`
-      );
-    }
-
-    // Call render function to display the single auction
-    renderSingleAuction(auctionResponse.data);
-  } catch (error) {
-    console.error("Error fetching single auction:", error);
-  }
-}
-
 
 /////////// This function is responsible for rendering the auction details into the DOM
 export function renderSingleAuction(auction) {

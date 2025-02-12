@@ -9,16 +9,21 @@
 
 // Import functions to fetch auction posts and render them
 import { fetchAllAuctions } from "../../api/list/allList";  // API function for fetching auction posts
+import { urlFilterHandler } from "../../utilities/urlFilterHandler";
 import { renderAuctionPosts } from "../homeBuilder/allListing";  // Function to render auction posts in DOM
 
 let currentPage = 1;
 const limit = 12;
 
+document.getElementById("categories").addEventListener("change", () => {
+  fetchPosts();
+});
 // Fetches auction posts for a specific page and tag, then renders them in the DOM.
 export const fetchPosts = async (page = 1, tag = "") => {
   try {
+    const selectedTag = urlFilterHandler()
     // Assuming you have an API function like this to fetch auction listings
-    const response = await fetchAllAuctions(limit, page, tag); 
+    const response = await fetchAllAuctions(limit, page, selectedTag); 
 
     // Destructure the response to get the auction data and pagination metadata
     const { data, meta } = response;

@@ -1,5 +1,6 @@
 
 import { fetchAllAuctions } from "../../api/list/allList";
+import { fetchAuctionProfile } from "../../api/profile/auctionProfile";
 import { setLogoutListener } from "../../ui/global/logout";
 import { renderAuctionPosts } from "../../ui/homeBuilder/allListing";
 import { fetchPosts, goLeft, goRight } from "../../ui/paginator/homePagination";
@@ -21,6 +22,8 @@ navbarLinks.classList.toggle("hidden");
 });
 
 
+
+
 /**
  * Fetches auction listings with authentication and renders them to the DOM.
  */
@@ -39,3 +42,27 @@ navbarLinks.classList.toggle("hidden");
   }
 
   fetchAndRenderAuctions();
+
+
+  const verifyUser = localStorage.getItem('verify_user');
+  console.log('verify_user:', verifyUser); // Log verify_user value
+  
+  if (verifyUser === 'true') {
+    const user = JSON.parse(localStorage.getItem('adminUser'));
+    const token = localStorage.getItem('token');
+  
+    console.log('adminUser:', user); // Log adminUser
+    console.log('token:', token); // Log token
+  
+    if (user && token) {
+      fetchAuctionProfile(user.name, token);
+    } else {
+      console.error('User or token is missing!');
+    }
+  } else {
+    console.log('User is not verified');
+  }
+  
+
+
+

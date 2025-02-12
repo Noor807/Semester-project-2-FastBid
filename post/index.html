@@ -97,11 +97,45 @@
           Delete post
         </button>
       </div>
+
+      <div class="w-full max">
+        <form id="placeBid" method="POST" class="space-y-4">
+          <div>
+            <label
+              for="bid-amount"
+              class="block text-lg font-semibold text-gray-700"
+              >Place your bid</label
+            >
+            <input
+             minlength="0"
+              type="number"
+              id="bid-amount"
+              name="bid-amount"
+              placeholder="Enter bid amount"
+              class="mt-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+
+          <div class="flex justify-between items-center">
+            <button
+              type="submit"
+              class="px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              Place Bid
+            </button>
+            <span class="text-sm text-gray-500">Current bid: $50.00</span>
+          </div>
+        </form>
+      </div>
     </main>
-   <footer class="bg-dark-pink text-bright-blue gap-5 py-8">
-      <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
+    <footer class="bg-dark-pink text-bright-blue gap-5 py-8">
+      <div
+        class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
+      >
         <!-- First div: Privacy policy and About Us -->
-        <div class="flex flex-col md:flex-col mb-6 md:mb-0 space-y-2 md:space-y-0 md:space-x-8 text-center md:text-left">
+        <div
+          class="flex flex-col md:flex-col mb-6 md:mb-0 space-y-2 md:space-y-0 md:space-x-8 text-center md:text-left"
+        >
           <a class="underline text-bright-blue" href="">Privacy Policy</a>
           <a class="underline text-bright-blue" href="">About Us</a>
         </div>
@@ -119,7 +153,11 @@
 
       <!-- Image centered underneath the divider -->
       <div class="flex justify-center my-4">
-        <img class="max-w-[200px] md:max-w-[300px]" src="/public/imgs/Group 361.png" alt="Group Image" />
+        <img
+          class="max-w-[200px] md:max-w-[300px]"
+          src="/public/imgs/Group 361.png"
+          alt="Group Image"
+        />
       </div>
 
       <!-- Logo (left) -->
@@ -131,7 +169,9 @@
         />
       </div>
       <!-- Copyright -->
-      <p class="text-center text-white mt-4">Copyright © 1995-2025 FastBid. All Rights Reserved</p>
+      <p class="text-center text-white mt-4">
+        Copyright © 1995-2025 FastBid. All Rights Reserved
+      </p>
     </footer>
   </body>
 </html>

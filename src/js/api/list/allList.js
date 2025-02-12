@@ -1,3 +1,4 @@
+import { urlFilterHandler } from "../../utilities/urlFilterHandler";
 import { API_AUCTION } from "../constants";
 
 /**
@@ -13,6 +14,7 @@ export async function fetchAllAuctions(limit = 12, page = 1, tag = "") {
   try {
     // Construct the URL with pagination and optional tag filtering
    
+
     // Append query parameters dynamically
     const params = new URLSearchParams({
       limit: limit,   // Set the number of items per page
@@ -21,6 +23,7 @@ export async function fetchAllAuctions(limit = 12, page = 1, tag = "") {
       _seller: true,
       _bids: true,
     });
+    
     const newUrl = `${API_AUCTION}?${params}`;
     // Append parameters to the URL
   
