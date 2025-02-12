@@ -12,6 +12,7 @@
   </head>
   <body class="font-custom min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header>
+<<<<<<< HEAD
         <div
           class="navbar bg-dark-pink p-4 flex justify-between w-full fixed top-0 z-10 items-center"
         >
@@ -72,6 +73,67 @@
         </div>
       </header>
   
+=======
+      <div
+        class="navbar bg-dark-pink p-4 flex justify-between w-full fixed top-0 z-10 items-center"
+      >
+        <!-- Logo  -->
+        <a href="/" class="text-white">
+          <img
+            class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
+            src="/imgs/Screenshot 2025-01-29 at 15.46.32 2.png"
+            alt="noroff logo"
+          />
+        </a>
+        <!-- Hamburger Menu for Small Screens  -->
+        <div class="lg:hidden flex items-center">
+          <button id="hamburger-btn" class="text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Navigation Links -->
+        <ul
+          id="navbar-links"
+          class="lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 hidden space-y-4 top-[100%] bg-dark-pink right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex flex-col justify-center"
+        >
+          <li>
+            <a href="/profile/" class="text-white font-semibold hover:underline"
+              >My Profile</a
+            >
+          </li>
+          <li>
+            <a
+              href="/post/create/"
+              class="text-white font-semibold hover:underline"
+              >Create Post</a
+            >
+          </li>
+          <li>
+            <button
+              id="logout-Btn"
+              type="button"
+              class="bg-yellow-700 text-white py-1 px-4 font-semibold rounded-md hover:bg-orange-500 transition"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+>>>>>>> d2529e3fa30724d20abb14ad11292d996ff427d9
     <main>
       <h1 class="text-sm font-bold mt-52 text-center text-black" >Update List</h1>
 
