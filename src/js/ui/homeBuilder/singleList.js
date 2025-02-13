@@ -1,4 +1,3 @@
-
 /////////// This function is responsible for rendering the auction details into the DOM
 export function renderSingleAuction(auction) {
   const auctionDetailContainer = document.querySelector(
@@ -54,12 +53,12 @@ export function renderSingleAuction(auction) {
   titleElement.textContent = title;
   rightDiv.appendChild(titleElement);
 
-    // Create tags element for auction
-    const tagsElement = document.createElement("p");
-    tagsElement.className = "text-xs text-gray-700 mb-4";
-    tagsElement.textContent =
-      tags.length > 0 ? `Tags: ${tags.join(", ")}` : "No tags available";
-    rightDiv.appendChild(tagsElement);
+  // Create tags element for auction
+  const tagsElement = document.createElement("p");
+  tagsElement.className = "text-xs text-gray-700 mb-4";
+  tagsElement.textContent =
+    tags.length > 0 ? `Tags: ${tags.join(", ")}` : "No tags available";
+  rightDiv.appendChild(tagsElement);
 
   // Create description element for auction
   const descriptionElement = document.createElement("p");
@@ -80,8 +79,6 @@ export function renderSingleAuction(auction) {
     created ? created.slice(0, 10) : "Unknown Date"
   }`;
   rightDiv.appendChild(createdElement);
-
-
 
   // Create endsAt date element for auction
   const endsAtElement = document.createElement("p");

@@ -16,7 +16,8 @@ const postId = urlSearch.get("singleList");
  // Fetch the auction data using the postId
  const auctionData = await fetchSingleAuction(postId);
 console.log(auctionData);
-const highestBid = getHighestBidValue(auctionData.data)
+const { highestBid } = getHighestBidValue(auctionData.data);
+document.getElementById('highestBid').textContent = `${highestBid}$`
 console.log(highestBid);
 
  // Render the single post with the fetched data
@@ -42,7 +43,7 @@ if (editButton) {
 
 
 
- //Handle the hamburger button click for navigation
+//Handle the hamburger button click for navigation
 const hamburgerBtn = document.getElementById("hamburger-btn");
 const navbarLinks = document.getElementById("navbar-links");
 
@@ -57,9 +58,10 @@ document.getElementById("placeBid").addEventListener("submit", async (event) => 
   console.log('place-bid');
   
   let bidAmount = document.getElementById("bid-amount").value; // Get the bid amount from the input field
-  bidAmount = parseFloat(3);
+  const finalBid = parseInt(bidAmount, 10);
+  let currentBalance = parseFloat(localStorage.getItem("credit")) || 0;
   // Make sure that the values are valid
-  if (!postId || !bidAmount) {
+  if (!postId || !finalBid) {
     console.error('Post ID or bid amount is missing');
     return;
   }
@@ -69,7 +71,9 @@ document.getElementById("placeBid").addEventListener("submit", async (event) => 
   console.log("Highest Bid:", highestBid);
 
   // Call handleBidSubmission with the postId and highestBid
-  await handleBidSubmission(postId, highestBid, bidAmount);
+  await handleBidSubmission(postId, highestBid, finalBid);
+  currentBalance -= finalBid;
+      localStorage.setItem("credit", currentBalance);
 });
 
 
