@@ -74,7 +74,7 @@
 
     <main class="blog-brief px-4 py-6 mt-20 md:mt-40">
       <h1
-        class="text-4xl sm:text-3xl md:text-4xl mt-12 mb-16 font-bold text-center text-gray-800 border-b-2"
+        class="text-lg sm:text-xs md:text-base  mt-12 mb-16 font-bold text-center text-gray-800 border-b-2"
       >
         Single Auction post
       </h1>
@@ -87,7 +87,7 @@
       <!-- Edit and Delete buttons -->
       <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
         <button
-          class="edit-btn admin-hidden border-2 border-solid border-orange-500 font-semibold bg-blue-gray text-white py-2 px-4 rounded-md hover:bg-orange-400 transition duration-200"
+          class="edit-btn admin-hidden border-2 border-solid border-orange-500 font-semibold bg-blue-gray text-white py-2 px-6 rounded-md hover:bg-orange-400 transition duration-200"
         >
           Edit post
         </button>
@@ -98,36 +98,43 @@
         </button>
       </div>
 
-      <div class="w-full max">
+      <div class="w-full max-w-xxl mt-28 mx-auto px-2 bg-slate-400">
+        <!-- Top Divider Line -->
+        <hr class="border-t border-blue-gray mb-4">
+      
         <form id="placeBid" method="POST" class="space-y-4">
           <div>
-            <label
-              for="bid-amount"
-              class="block text-lg font-semibold text-gray-700"
-              >Place your bid</label
-            >
+            <label for="bid-amount" class="block text-sm font-semibold text-black">Place your bid</label>
             <input
-             minlength="0"
+              minlength="0"
               type="number"
               id="bid-amount"
               name="bid-amount"
               placeholder="Enter bid amount"
-              class="mt-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              class="mt-2 w-full px-4 py-2 border-2 border-solid border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
-
-          <div class="flex justify-between items-center">
+      
+          <div class="flex flex-col sm:flex-row justify-between items-center sm:space-x-4 mt-4">
             <button
               type="submit"
-              class="px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              class="w-full sm:w-auto px-6 py-2 border-2 border-white bg-blue-gray text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               Place Bid
             </button>
             
-            <p class="font-semibold">Current bid:<span class="font-semibold text-gray-500" id="highestBid">$50.00</span></p>
+            <p class="font-semibold mt-4 sm:mt-0">
+              Current bid: <span class="font-semibold text-black" id="highestBid">$50.00</span>
+            </p>
           </div>
         </form>
+      
+        <!-- Bottom Divider Line -->
+        <hr class="border-t border-blue-gray mt-4">
       </div>
+      
+      
+      
     </main>
     <footer class="bg-dark-pink text-bright-blue gap-5 py-8">
       <div

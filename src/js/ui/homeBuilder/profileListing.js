@@ -9,7 +9,7 @@ export async function generateAuctionListing(auctions) {
   auctions.forEach((auction) => {
     // Create the section element
     const section = document.createElement('section');
-    section.classList.add('flex', 'flex-col', 'sm:flex-col','border', 'border-blue-gray', 'md:flex-col', 'lg:flex-col', 'gap-5', 'mb-8');
+    section.classList.add('flex', 'flex-col', 'sm:flex-col','border', 'border-blue-gray', 'md:flex-col', 'lg:flex-col', 'gap-3', 'mb-4');
 
   
     // Create the first div (image and title)
@@ -42,9 +42,9 @@ export async function generateAuctionListing(auctions) {
 
     // Create the third div (button)
     const div3 = document.createElement('div');
-    div3.classList.add('lg:items-start' , 'sm:items-start', 'mt-1','ml-3');
+    div3.classList.add('lg:items-start' , 'sm:items-start', 'mt-1','ml-3' ,'mb-2');
     const button = document.createElement('button');
-    button.classList.add('bg-blue-500', 'text-white', 'px-5', 'py-2', 'rounded', 'hover:bg-blue-600', 'transition', 'border', 'border-white');
+    button.classList.add('bg-blue-gray','border-2', 'border-white', 'text-white', 'px-3', 'py-1', 'rounded', 'hover:bg-blue-600', 'transition', 'border', 'border-white');
 
     button.innerText = 'View Auction';
     // Attach click event to the button

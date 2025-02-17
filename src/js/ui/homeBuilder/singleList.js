@@ -32,11 +32,14 @@ export function renderSingleAuction(auction) {
     img.src = media[0].url || "";
     img.alt = media[0].alt || "No description";
   }
-  img.className = "w-full h-70 object-cover rounded-lg mb-6";
+  img.className = "w-full h-96 object-cover mb-6";
+
+
+
 
   // Create auction details container
   const contentDiv = document.createElement("div");
-  contentDiv.className = "flex flex-row md:flex-row gap-6 md:gap-12"; // Flex container with responsive layout
+  contentDiv.className = "flex flex-col md:flex-row gap-6 md:gap-7"; // Flex container with responsive layout
 
   // Left side - Image and details
   const leftDiv = document.createElement("div");
@@ -49,7 +52,7 @@ export function renderSingleAuction(auction) {
 
   // Create title element for auction
   const titleElement = document.createElement("h2");
-  titleElement.className = "text-sm font-semibold text-gray-800 mb-4";
+  titleElement.className = "text-sm font-bold text-gray-800 mb-4";
   titleElement.textContent = title;
   rightDiv.appendChild(titleElement);
 
@@ -97,7 +100,7 @@ export function renderSingleAuction(auction) {
 
   // Optionally, you can also display the number of bids
   const bidsElement = document.createElement("p");
-  bidsElement.className = "text-sm font-bold text-gray-600 mt-4";
+  bidsElement.className = "text-sm ml- font-bold text-gray-600 mt-4";
   bidsElement.textContent = `Bids: ${_count.bids}`;
   auctionDetailContainer.appendChild(bidsElement);
 }
