@@ -1,26 +1,26 @@
 
 import { fetchAllAuctions } from "../../api/list/allList";
 import { fetchAuctionProfile } from "../../api/profile/auctionProfile";
-import { setLogoutListener } from "../../ui/global/logout";
+import { onLogout } from "../../ui/auth/logout";
 import { renderAuctionPosts } from "../../ui/homeBuilder/allListing";
 import { fetchPosts, goLeft, goRight } from "../../ui/paginator/homePagination";
 import { authGuard } from "../../utilities/authGuard";
 
 
-
-setLogoutListener
 authGuard
-
+onLogout
 fetchPosts();
 
 
-document.getElementById("left").addEventListener("click", goLeft);
-document.getElementById("right").addEventListener("click", goRight);
-document.getElementById("hamburger-btn").addEventListener("click", () => {
-const navbarLinks = document.getElementById("navbar-links");
-navbarLinks.classList.toggle("hidden");
-});
 
+document.getElementById("logout-Btn").addEventListener("click", onLogout);
+
+const hamburgerBtn = document.getElementById("hamburger-btn");
+const navbarLinks = document.getElementById("navbar-links");
+
+hamburgerBtn.addEventListener("click", () => {
+  navbarLinks.classList.toggle("hidden");
+});
 
 
 

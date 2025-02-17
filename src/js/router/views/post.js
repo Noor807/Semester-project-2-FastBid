@@ -1,13 +1,12 @@
 import { fetchSingleAuction } from "../../api/list/singleListRead";
-import { setLogoutListener } from "../../ui/global/logout";
+import { onLogout } from "../../ui/auth/logout";
 import {  renderSingleAuction } from "../../ui/homeBuilder/singleList";
 import { handleBidSubmission } from "../../ui/list/bid";
 import { onDeletePost } from "../../ui/list/delete";
 import { getHighestBidValue } from "../../utilities/higherBider";
 
+onLogout
 
- //Set up the logout listener
-setLogoutListener();
 
  //Get the post ID from the URL query parameters
 const urlSearch = new URLSearchParams(window.location.search);
@@ -44,12 +43,16 @@ if (editButton) {
 
 
 //Handle the hamburger button click for navigation
+document.getElementById("logout-Btn").addEventListener("click", onLogout);
+
 const hamburgerBtn = document.getElementById("hamburger-btn");
 const navbarLinks = document.getElementById("navbar-links");
 
 hamburgerBtn.addEventListener("click", () => {
   navbarLinks.classList.toggle("hidden");
 });
+
+
 
 
 document.getElementById("placeBid").addEventListener("submit", async (event) => {
