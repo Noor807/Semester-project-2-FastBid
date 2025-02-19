@@ -1,10 +1,10 @@
-import { fetchSingleAuction } from "../../api/list/singleListRead";
-import { onLogout } from "../../ui/auth/logout";
-import { renderSingleAuction } from "../../ui/homeBuilder/singleList";
-import { handleBidSubmission } from "../../ui/list/bid";
-import { createBidHistoryModal } from "../../ui/list/bidHistory";
-import { onDeletePost } from "../../ui/list/delete";
-import { getHighestBidValue } from "../../utilities/higherBider";
+import { fetchSingleAuction } from "../../api/list/singleListRead.mjs";
+import { onLogout } from "../../ui/auth/logout.mjs";
+import { renderSingleAuction } from "../../ui/homeBuilder/singleList.mjs";
+import { handleBidSubmission } from "../../ui/list/bid.mjs";
+import { createBidHistoryModal } from "../../ui/list/bidHistory.mjs";
+import { onDeletePost } from "../../ui/list/delete.mjs";
+import { getHighestBidValue } from "../../utilities/higherBider.mjs";
 
 onLogout;
 

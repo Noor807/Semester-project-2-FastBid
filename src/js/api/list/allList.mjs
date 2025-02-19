@@ -1,5 +1,4 @@
-import { urlFilterHandler } from "../../utilities/urlFilterHandler";
-import { API_AUCTION } from "../constants";
+import { API_AUCTION } from "../constants.mjs";
 
 /**
  * Fetches all auction listings from the API with authentication and supports pagination.

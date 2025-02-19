@@ -1,4 +1,4 @@
-import { API_AUCTION, API_KEY } from "../constants";
+import { API_AUCTION, API_KEY } from "../constants.mjs";
 
 export async function placeBidApi(id, amount, token) {
     if (!id || !amount || amount <= 0 || !token) {

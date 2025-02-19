@@ -2,7 +2,7 @@
  * Passes data to the createPost function in api/post and handles the response
  */
 
-import { deleteAuction } from "../../api/list/delete";
+import { deleteAuction } from "../../api/list/delete.mjs";
 
 export async function onDeletePost(event) {
   event.preventDefault();

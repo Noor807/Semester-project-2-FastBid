@@ -7,9 +7,9 @@
  */
 
 // Import functions to fetch auction posts and render them
-import { fetchAllAuctions } from "../../api/list/allList";  // API function for fetching auction posts
+import { fetchAllAuctions } from "../../api/list/allList.mjs";  // API function for fetching auction posts
 import { urlFilterHandler } from "../../utilities/urlFilterHandler";
-import { renderAuctionPosts } from "../homeBuilder/allListing";  // Function to render auction posts in DOM
+import { renderAuctionPosts } from "../homeBuilder/allListing.mjs";  // Function to render auction posts in DOM
 
 let currentPage = 1;
 const limit = 12;

@@ -1,4 +1,4 @@
-import { placeBidApi } from "../../api/list/bid";
+import { placeBidApi } from "../../api/list/bid.mjs";
 
 
 export async function handleBidSubmission(id, highestBid, bidAmount) {

@@ -14,7 +14,7 @@
  *   @param {Array<string>} [array[].tags=[]] - Tags associated with the auction.
  */
 
-import { getHighestBidValue } from "../../utilities/higherBider";
+import { getHighestBidValue } from "../../utilities/higherBider.mjs";
 
 // renderAuctionPosts.js
 

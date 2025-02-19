@@ -1,5 +1,5 @@
-import { createBidHistoryModal } from "../../ui/list/bidHistory";
-import { API_AUCTION } from "../constants";
+import { createBidHistoryModal } from "../../ui/list/bidHistory.mjs";
+import { API_AUCTION } from "../constants.mjs";
 
 
 /**

@@ -1,4 +1,4 @@
-import { API_AUCTION, API_KEY } from "../constants"; // Ensure the API URL is correctly imported
+import { API_AUCTION, API_KEY } from "../constants.mjs"; // Ensure the API URL is correctly imported
 
 // Function to delete an auction listing by ID
 export async function deleteAuction(id, authToken) {
