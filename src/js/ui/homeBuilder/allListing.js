@@ -20,10 +20,22 @@ import { getHighestBidValue } from "../../utilities/higherBider";
 
 export function renderAuctionPosts(auctions) {
   const listingsContainer = document.getElementById("auctionContainer"); // Assuming you have a container for the listings
-
+  listingsContainer.innerHTML = ''
+  // Apply Tailwind grid layout with responsive classes
+  listingsContainer.classList.add(
+    "grid", 
+    "gap-6", 
+    "sm:grid-cols-1",   
+    "md:grid-cols-2",  
+    "lg:grid-cols-2",   
+    "xl:grid-cols-3"    
+  );
+  
+  
   auctions.forEach((auction) => {
-    const endedListing = findEndedList(auction.endsAt)
-    const hasEnded = endedListing === 'Listing ended'
+    const endedListing = findEndedList(auction.endsAt);
+    const hasEnded = endedListing === 'Listing ended';
+    
     // Create the outer div for listing card
     const listingCard = document.createElement("div");
     listingCard.className =
@@ -31,17 +43,17 @@ export function renderAuctionPosts(auctions) {
     listingCard.addEventListener("click", () => {
       window.location.href = `/post/index.html?singleList=${auction.id}`;
     });
+    
     if (hasEnded) {
-      listingCard.classList.add( 'relative');  // Add opacity and relative positioning to the card
+      listingCard.classList.add('relative');  // Add opacity and relative positioning to the card
 
-// Create the "Auction Ended" message div
-const endedList = document.createElement("div");
-endedList.className = 'absolute inset-0 flex justify-center items-center bg-light-blue opacity-80 text-black p-4 text-lg font-semibold ';
-endedList.textContent = 'Auction of list is ended';
+      // Create the "Auction Ended" message div
+      const endedList = document.createElement("div");
+      endedList.className = 'absolute inset-0 flex justify-center items-center bg-light-blue opacity-80 text-black p-4 text-sm font-semibold';
+      endedList.textContent = 'Auction of list is ended';
 
-// Append the "ended" message to the listing card
-listingCard.appendChild(endedList);
-
+      // Append the "ended" message to the listing card
+      listingCard.appendChild(endedList);
     }
 
     // Create a wrapper div for the image
@@ -65,11 +77,11 @@ listingCard.appendChild(endedList);
     topDiv.className = "mb-4"; // Margin bottom for spacing between sections
     const title = document.createElement("h2");
     title.textContent = auction.title;
-    title.className = " font-bold text-gray-900"; // Title styling
+    title.className = "font-bold text-gray-900"; // Title styling
     topDiv.appendChild(title);
     const category = document.createElement("h3");
     category.textContent = auction.tags[0] || "Unknown Category"; // Fallback for category
-    category.className = " text-gray-600"; // Category styling
+    category.className = "text-gray-600"; // Category styling
     topDiv.appendChild(category);
     contentDiv.appendChild(topDiv);
 
@@ -79,13 +91,17 @@ listingCard.appendChild(endedList);
     middleDiv.className = "flex justify-between items-center"; // Flexbox for left-right alignment
     const currentPrice = document.createElement("p");
     currentPrice.textContent = `Current Price: $${highestBid || "0.00"}`; // Assuming auction price exists
-    currentPrice.className = " font-semibold text-gray-900"; // Price styling
+    currentPrice.className = "font-semibold text-gray-900"; // Price styling
     middleDiv.appendChild(currentPrice);
 
     const bidsLink = document.createElement("a");
+    bidsLink.addEventListener('click' , ()=>{
+      localStorage.setItem('trigger', true)
+    })
     bidsLink.className = "text-blue-600 hover:underline"; // Link styling with hover effect
-    bidsLink.href = `/auction/${auction.id}`; // Assuming auction link goes to a single auction page
+    bidsLink.href = `/post/index.html?singleList=${auction.id}`; // Assuming auction link goes to a single auction page
     bidsLink.textContent = `Bids: ${auction._count?.bids || 0}`;
+    
     middleDiv.appendChild(bidsLink);
     contentDiv.appendChild(middleDiv);
 
@@ -96,24 +112,18 @@ listingCard.appendChild(endedList);
     timeDiv.className = "flex flex-col"; // Stack the time-related info
 
     const createdP = document.createElement("p");
-    createdP.textContent = `Created: ${new Date(
-      auction.created
-    ).toLocaleDateString()}`;
-    createdP.className = " text-gray-600"; // Time info styling
+    createdP.textContent = `Created: ${new Date(auction.created).toLocaleDateString()}`;
+    createdP.className = "text-gray-600"; // Time info styling
     timeDiv.appendChild(createdP);
 
     const updatedP = document.createElement("p");
-    updatedP.textContent = `Updated: ${new Date(
-      auction.updated
-    ).toLocaleDateString()}`;
-    updatedP.className = " text-gray-600"; // Time info styling
+    updatedP.textContent = `Updated: ${new Date(auction.updated).toLocaleDateString()}`;
+    updatedP.className = "text-gray-600"; // Time info styling
     timeDiv.appendChild(updatedP);
 
     const endsAtP = document.createElement("p");
-    endsAtP.textContent = `Ends At: ${new Date(
-      auction.endsAt
-    ).toLocaleDateString()}`;
-    endsAtP.className = " text-gray-600"; // Time info styling
+    endsAtP.textContent = `Ends At: ${new Date(auction.endsAt).toLocaleDateString()}`;
+    endsAtP.className = "text-gray-600"; // Time info styling
     timeDiv.appendChild(endsAtP);
 
     bottomDiv.appendChild(timeDiv);
@@ -123,7 +133,7 @@ listingCard.appendChild(endedList);
     shippingP.textContent = auction.freeShipping
       ? "Free Shipping"
       : "Shipping Costs Apply";
-    shippingP.className = " text-black-600"; // Shipping info styling
+    shippingP.className = "text-black-600"; // Shipping info styling
     bottomDiv.appendChild(shippingP);
 
     contentDiv.appendChild(bottomDiv);
@@ -135,7 +145,6 @@ listingCard.appendChild(endedList);
     listingsContainer.appendChild(listingCard);
   });
 }
-
 
 export function findEndedList(endsAt) {
   return new Date(endsAt) <= new Date() ? "Listing ended" : "";

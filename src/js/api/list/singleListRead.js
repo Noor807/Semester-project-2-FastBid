@@ -1,3 +1,4 @@
+import { createBidHistoryModal } from "../../ui/list/bidHistory";
 import { API_AUCTION } from "../constants";
 
 
@@ -27,6 +28,7 @@ export async function fetchSingleAuction(auctionId) {
     // Parse the response to get the auction data
     const auctionData = await response.json();
 console.log(auctionData);
+
 
     // Return the auction data
     return auctionData;

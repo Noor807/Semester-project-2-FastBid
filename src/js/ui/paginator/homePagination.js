@@ -16,17 +16,35 @@ const limit = 12;
 
 // Handle category change event
 document.getElementById("categories").addEventListener("change", () => {
+  document.getElementById("search-input").value = ''
   fetchPosts(1); // Fetch posts when category is changed (reset to page 1)
 });
 
+document.getElementById("search-input").addEventListener("input", () => {
+  fetchPosts(1); // Fetch posts when category is changed (reset to page 1)
+});
+
+
 // Fetches auction posts for a specific page and tag, then renders them in the DOM.
 export const fetchPosts = async (page = 1) => {
-  try {
-    // Get the selected tag (empty string if no category is selected)
-    const selectedTag = urlFilterHandler() || ""; // Defaults to empty string if no category is selected
+  const searchQuery = document.getElementById("search-input").value.trim();
+  const selectedTag = urlFilterHandler() || ""; // Get selected category
 
+  try {
+    let response;
+
+    if (searchQuery) {
+      // Call search endpoint
+      response = await fetchAllAuctions(12, page, searchQuery, null, true);
+    } else if (selectedTag) {
+      // Call category endpoint
+      response = await fetchAllAuctions(12, page, null, selectedTag, false);
+    } else {
+      // Fetch all auctions normally
+      response = await fetchAllAuctions(12, page, null, null, false);
+    }
     // Assuming you have an API function like this to fetch auction listings
-    const response = await fetchAllAuctions(limit, page, selectedTag);
+   // const response = await fetchAllAuctions(limit, page, selectedTag);
 
     // Destructure the response to get the auction data and pagination metadata
     const { data, meta } = response;

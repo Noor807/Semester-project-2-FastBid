@@ -5,7 +5,8 @@ import { API_KEY, API_AUCTION_PROFILE } from '../constants.js';
  export async function updateProfileAPI(name, avatarUrl, token) {
   const url = `${API_AUCTION_PROFILE}/${name}`; // Using the imported constant for API URL
   const requestBody = {
-  
+    
+    
     avatar: {
       url: avatarUrl,
       alt: "User avatar"
@@ -31,7 +32,8 @@ import { API_KEY, API_AUCTION_PROFILE } from '../constants.js';
     }
 
     const data = await response.json();
-    console.log('Profile updated successfully:', data);
+    const adminUser = data.data;
+    localStorage.setItem("adminUser", JSON.stringify(adminUser));
     return data; // Return the updated profile data
 
   } catch (error) {

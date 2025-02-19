@@ -100,7 +100,8 @@ export function renderSingleAuction(auction) {
 
   // Optionally, you can also display the number of bids
   const bidsElement = document.createElement("p");
-  bidsElement.className = "text-sm ml- font-bold text-gray-600 mt-4";
+  bidsElement.id = 'bidHistory'
+  bidsElement.className = "text-sm ml-3 font-bold text-gray-600 mt-4";
   bidsElement.textContent = `Bids: ${_count.bids}`;
   auctionDetailContainer.appendChild(bidsElement);
 }

@@ -10,47 +10,38 @@ import { API_AUCTION } from "../constants";
  * @returns {Promise<Object>} The auction listings and pagination metadata.
  * @throws {Error} If the API request fails.
  */
-export async function fetchAllAuctions(limit = 12, page = 1, tag = "") {
+export async function fetchAllAuctions(limit = 12, page = 1, searchQuery = null, tag = null, isSearch = false) {
   try {
-    // Construct the URL with pagination and optional tag filtering
-   
+    let newUrl;
 
-    // Append query parameters dynamically
-    const params = new URLSearchParams({
-      limit: limit,   // Set the number of items per page
-      page: page,     // Set the page number
-      _tag: tag,         // Set the tag filter (if any)
-      _seller: true,
-      _bids: true,
-    });
-    
-    const newUrl = `${API_AUCTION}?${params}`;
-    // Append parameters to the URL
-  
-console.log(newUrl);
-
-    // Make the API request
-    const response = await fetch(newUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    // Check if the response is ok (status 200-299)
-    if (!response.ok) {
-      throw new Error('Failed to fetch auction listings');
+    if (isSearch && searchQuery) {
+      // Search endpoint
+      newUrl = `${API_AUCTION}/search?q=${encodeURIComponent(searchQuery)}&limit=${limit}&page=${page}&_seller=true&_bids=true`;
+    } else if (tag) {
+      // Category filtering endpoint
+      newUrl = `${API_AUCTION}?_tag=${encodeURIComponent(tag)}&limit=${limit}&page=${page}&_seller=true&_bids=true`;
+    } else {
+      // Default auction listings
+      newUrl = `${API_AUCTION}?limit=${limit}&page=${page}&_seller=true&_bids=true`;
     }
 
-    // Parse the response to get the auction listings data and pagination metadata
-    const auctionData = await response.json();
-console.log(auctionData);
+    console.log("Fetching:", newUrl);
 
-    // Return both auction data and pagination metadata
+    const response = await fetch(newUrl, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch auction listings");
+    }
+
+    const auctionData = await response.json();
+    console.log("Fetched Auctions:", auctionData);
     return auctionData;
 
   } catch (error) {
     console.error("Error fetching auction listings:", error);
-    throw error; // Re-throw error to be handled where the function is called
+    throw error;
   }
 }

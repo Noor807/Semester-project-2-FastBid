@@ -8,7 +8,7 @@ import { updateProfileAPI } from "../../api/profile/update";
 console.log('update profile');
 
   
-  const avatarUrl = document.getElementById('avatar').value;
+  const avatarUrl = document.getElementById('profileAvatar').value;
   const userName = JSON.parse(localStorage.getItem('adminUser')); // Replace this with the actual user name
   const token = localStorage.getItem('token')
   // Validate the inputs
