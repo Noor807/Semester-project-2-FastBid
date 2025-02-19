@@ -1,4 +1,4 @@
-import { API_AUCTION } from "../constants";
+import { API_AUCTION } from "../constants.mjs";
 const API_KEY = import.meta.env.VITE_API_KEY; // API key imported from .env file
 
 // Async function to edit an auction listing

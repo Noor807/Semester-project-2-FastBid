@@ -1,4 +1,4 @@
-import { API_AUCTION, API_KEY } from "../constants";
+import { API_AUCTION, API_KEY } from "../constants.mjs";
 
 
 // Async function to create a new list

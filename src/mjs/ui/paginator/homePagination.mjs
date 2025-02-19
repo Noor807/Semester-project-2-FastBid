@@ -8,7 +8,6 @@
 
 // Import functions to fetch auction posts and render them
 import { fetchAllAuctions } from "../../api/list/allList.mjs";  // API function for fetching auction posts
-import { urlFilterHandler } from "../../utilities/urlFilterHandler";
 import { renderAuctionPosts } from "../homeBuilder/allListing.mjs";  // Function to render auction posts in DOM
 
 let currentPage = 1;
@@ -28,7 +27,7 @@ document.getElementById("search-input").addEventListener("input", () => {
 // Fetches auction posts for a specific page and tag, then renders them in the DOM.
 export const fetchPosts = async (page = 1) => {
   const searchQuery = document.getElementById("search-input").value.trim();
-  const selectedTag = urlFilterHandler() || ""; // Get selected category
+  const selectedTag = document.getElementById("categories").value; // Get selected category
 
   try {
     let response;

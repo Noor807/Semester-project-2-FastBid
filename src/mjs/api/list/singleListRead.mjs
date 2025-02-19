@@ -1,4 +1,3 @@
-import { createBidHistoryModal } from "../../ui/list/bidHistory.mjs";
 import { API_AUCTION } from "../constants.mjs";
 
 

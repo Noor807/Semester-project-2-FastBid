@@ -1,5 +1,5 @@
 // Importing constants from your constants file
-import { API_KEY, API_AUCTION_PROFILE } from '../constants.js';
+import { API_KEY, API_AUCTION_PROFILE } from '../constants.mjs';
 
 // API Handler Function
  export async function updateProfileAPI(name, avatarUrl, token) {
