@@ -32,6 +32,8 @@ export default {
           'dark-teal': '#124559',
           'silver': '#C0C0C0',
           'bright-blue': '#0598dc',
+          'dark-blue': '#040b1a',
+                       
         }
       }
     },

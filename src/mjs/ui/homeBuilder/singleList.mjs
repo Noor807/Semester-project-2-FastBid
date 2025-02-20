@@ -52,32 +52,32 @@ export function renderSingleAuction(auction) {
 
   // Create title element for auction
   const titleElement = document.createElement("h2");
-  titleElement.className = "text-sm font-bold text-gray-800 mb-4";
+  titleElement.className = "text-sm font-bold ml-5 text-gray-800 mb-4";
   titleElement.textContent = title;
   rightDiv.appendChild(titleElement);
 
   // Create tags element for auction
   const tagsElement = document.createElement("p");
-  tagsElement.className = "text-xs text-gray-700 mb-4";
+  tagsElement.className = "text-xs text-gray-700 ml-5 mb-4";
   tagsElement.textContent =
     tags.length > 0 ? `Tags: ${tags.join(", ")}` : "No tags available";
   rightDiv.appendChild(tagsElement);
 
   // Create description element for auction
   const descriptionElement = document.createElement("p");
-  descriptionElement.className = " text-gray-800 mb-4";
+  descriptionElement.className = " text-gray-700 ml-5  mb-4";
   descriptionElement.textContent = description;
   rightDiv.appendChild(descriptionElement);
 
   // Create seller element for auction (you can modify this according to your data)
   const sellerElement = document.createElement("p");
-  sellerElement.className = " text-gray-600 mb-2";
+  sellerElement.className = " text-gray-800 font-semibold ml-5 mb-2";
   sellerElement.textContent = `Seller: ${seller.name || "Unknown Seller"}`; // Update with actual seller info if available
   rightDiv.appendChild(sellerElement);
 
   // Create created date element for auction
   const createdElement = document.createElement("p");
-  createdElement.className = " text-gray-500 mb-2";
+  createdElement.className = " text-gray-700 font-semibold ml-5 mb-2";
   createdElement.textContent = `Created: ${
     created ? created.slice(0, 10) : "Unknown Date"
   }`;
@@ -85,7 +85,7 @@ export function renderSingleAuction(auction) {
 
   // Create endsAt date element for auction
   const endsAtElement = document.createElement("p");
-  endsAtElement.className = " text-gray-500 mb-2";
+  endsAtElement.className = " text-gray-700 font-semibold ml-5 mb-2";
   endsAtElement.textContent = `Ends at: ${
     endsAt ? endsAt.slice(0, 10) : "Unknown Date"
   }`;
@@ -101,7 +101,7 @@ export function renderSingleAuction(auction) {
   // Optionally, you can also display the number of bids
   const bidsElement = document.createElement("p");
   bidsElement.id = 'bidHistory'
-  bidsElement.className = "text-sm ml-3 font-bold text-gray-600 mt-4";
+  bidsElement.className = "text-sm ml-5 font-bold text-gray-600 hover:text-blue-800 mt-6 cursor-pointer hover:underline";
   bidsElement.textContent = `Bids: ${_count.bids}`;
   auctionDetailContainer.appendChild(bidsElement);
 }

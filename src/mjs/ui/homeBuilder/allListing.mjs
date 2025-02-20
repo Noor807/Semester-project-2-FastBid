@@ -72,18 +72,22 @@ export function renderAuctionPosts(auctions) {
     // Create inner div for the content
     const contentDiv = document.createElement("div");
 
-    // Create the top section (title and category)
-    const topDiv = document.createElement("div");
-    topDiv.className = "mb-4"; // Margin bottom for spacing between sections
-    const title = document.createElement("h2");
-    title.textContent = auction.title;
-    title.className = "font-bold text-gray-900"; // Title styling
-    topDiv.appendChild(title);
-    const category = document.createElement("h3");
-    category.textContent = auction.tags[0] || "Unknown Category"; // Fallback for category
-    category.className = "text-gray-600"; // Category styling
-    topDiv.appendChild(category);
-    contentDiv.appendChild(topDiv);
+   // Create the top section (title and category)
+const topDiv = document.createElement("div");
+topDiv.className = "mb-4 border-b border-gray-300"; // Added bottom border for divider
+
+const title = document.createElement("h2");
+title.textContent = auction.title;
+title.className = "font-bold text-gray-900"; // Title styling
+topDiv.appendChild(title);
+
+const category = document.createElement("h3");
+category.textContent = auction.tags[0] || "Unknown Category"; // Fallback for category
+category.className = "text-gray-600"; // Category styling
+topDiv.appendChild(category);
+
+contentDiv.appendChild(topDiv);
+
 
     // Create the middle section (current price and bids)
     const { highestBid } = getHighestBidValue(auction);
@@ -99,10 +103,13 @@ export function renderAuctionPosts(auctions) {
       localStorage.setItem("trigger", true);
     });
 
-    bidsLink.className =
-      "text-sm text-blue-600 hover:bg-blue-100 hover:text-blue-700 px-3 py-1 rounded-md border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500";
-    bidsLink.href = `/post/index.html?singleList=${auction.id}`; // Assuming auction link goes to a single auction page
-    bidsLink.textContent = `Bids: ${auction._count?.bids || 0}`;
+    bidsLink.className = 
+    "cursor-pointer font-semibold bg-blue-gray  text-white hover:bg-white hover:text-blue-gray px-3 py-1 rounded-md border border-orange-500 focus:outline-none focus:ring-2 focus:ring-blue-500"; 
+  
+   bidsLink.href = `/post/index.html?singleList=${auction.id}`; // Assuming auction link goes to a single auction page
+  
+   bidsLink.textContent = `Bids: ${auction._count?.bids || 0}`;
+  
 
     middleDiv.appendChild(bidsLink);
     contentDiv.appendChild(middleDiv);
@@ -131,7 +138,9 @@ export function renderAuctionPosts(auctions) {
     endsAtP.textContent = `Ends At: ${new Date(
       auction.endsAt
     ).toLocaleDateString()}`;
-    endsAtP.className = "text-gray-600"; // Time info styling
+    endsAtP.className = "text-gray-600"; // Adjust text size for different screens
+    // Adjust text size for different screens
+
     timeDiv.appendChild(endsAtP);
 
     bottomDiv.appendChild(timeDiv);
@@ -140,8 +149,8 @@ export function renderAuctionPosts(auctions) {
     const shippingP = document.createElement("p");
     shippingP.textContent = auction.freeShipping
       ? "Free Shipping"
-      : "Shipping Costs Apply";
-    shippingP.className = "text-black-600"; // Shipping info styling
+      : "Shipping Cost";
+    shippingP.className = "text-black-600 font-semibold"; // Shipping info styling
     bottomDiv.appendChild(shippingP);
 
     contentDiv.appendChild(bottomDiv);
