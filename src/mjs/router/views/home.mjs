@@ -5,6 +5,7 @@ import { onLogout } from "../../ui/auth/logout";
 import { renderAuctionPosts } from "../../ui/homeBuilder/allListing";
 import { fetchPosts, goLeft, goRight } from "../../ui/paginator/homePagination";
 import { authGuard } from "../../utilities/authGuard";
+import { toastMessage } from "../../utilities/toastMsg.mjs";
 
 
 authGuard
@@ -63,6 +64,9 @@ hamburgerBtn.addEventListener("click", () => {
     console.log('User is not verified');
   }
   
-
+if (sessionStorage.getItem('loggedIn') === 'true') {
+  toastMessage('Welcome to FastBid' ,"success")
+  //sessionStorage.removeItem('loggedIn')
+}
 
 

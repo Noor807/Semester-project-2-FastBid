@@ -52,7 +52,7 @@ export function renderSingleAuction(auction) {
 
   // Create title element for auction
   const titleElement = document.createElement("h2");
-  titleElement.className = "text-sm font-bold ml-5 text-gray-800 mb-4";
+  titleElement.className = "text-xs font-bold ml-5 text-gray-800 mb-4";
   titleElement.textContent = title;
   rightDiv.appendChild(titleElement);
 

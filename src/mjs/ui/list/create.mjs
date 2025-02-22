@@ -1,4 +1,5 @@
 import { createList } from "../../api/list/create";
+import { toastMessage } from "../../utilities/toastMsg.mjs";
 
 
   // Handle form submission for creating a new list
@@ -31,8 +32,8 @@ import { createList } from "../../api/list/create";
     try {
       const result = await createList(newPost , token);
     
-      window.location.href = `/post/index.html?singleList=${result.data.id} `
-      alert("list created successfully!");
+      //window.location.href = `/post/index.html?singleList=${result.data.id} `
+      toastMessage("list created successfully!" , 'success');
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to create list: " + error.message);

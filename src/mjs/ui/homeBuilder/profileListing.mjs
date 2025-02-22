@@ -1,91 +1,78 @@
-import { getHighestBidValue } from "../../utilities/higherBider";
+import {getHighestBidValue } from "../../utilities/higherBider.mjs";
 
-// Function to generate HTML and export it
-export async function generateAuctionListing(auctions) {
-  const container = document.getElementById('auctionContainer'); // Container to hold all auction listings
-  container.innerHTML = ''; // Clear the container
 
-  // Loop through the array of auctions and generate HTML for each
-  auctions.forEach((auction) => {
-    // Create the section element
+export async function generateAuctionListing(dataArray) {
+  const auctionContainer = document.getElementById('auctionContainer');
+  
+  // Clear any existing content in the container
+  auctionContainer.innerHTML = '';
+  
+  // Loop through each item in the array using forEach
+  dataArray.forEach(item => {
+    // Create section element
     const section = document.createElement('section');
-    section.classList.add(
-      'flex', 
-      'flex-col', 
-      'sm:flex-row',  // Make it row on small screens
-      'border', 
-      'border-blue-gray', 
-      'gap-2', 
-      'mb-2',
-      'sm:gap-1', // Larger gap for small screens
-      'lg:gap-8',
-      'lg:flex-row',  // For large screens, keep it row
-      'lg:gap-8' // Even bigger gap on large screens
-    );
-
-    // Create the first div (image and title)
-    const div1 = document.createElement('div');
-    div1.classList.add('flex', 'flex-col', 'items-center', 'ml-3', 'sm:ml-2', 'lg:ml-8');
+    section.className = 'flex flex-col w-full border-2 border-gray-500 p-4 ';
+    
+    // Create title element
     const title = document.createElement('h3');
-    title.classList.add('font-bold', 'mb-2','sm:text-xs',  'lg:text-sm');
-    title.innerText = auction.title; // Auction title
-
+    title.className = 'text-xs font-bold';
+    title.textContent = item.title; // Assuming each item has a 'title' property
+    
+    // Create the div that will wrap image, description, price, and button
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'flex flex-col sm:flex-row gap-2 relative w-full';
+    
+    // Create img element using item.media[0].url and item.media[0].alt
     const img = document.createElement('img');
-    img.classList.add(
-      'w-20', 'h-20', 'object-cover', 'rounded-lg', 
-      'sm:w-40', 'sm:h-40', 'lg:w-48', 'lg:h-48', 
-      'mb-3', 'sm:mr-4'
-    );
-    img.src = auction.media[0]?.url || ""; // Fallback if no media is available
-    img.alt = auction.media[0]?.alt || "Image";
-    div1.appendChild(title);
-    div1.appendChild(img);
+    img.className = 'w-20 h-20';
+    img.src = item.media[0]?.url || ''; // Use item.media[0].url for the image URL
+    img.alt = item.media[0]?.alt || 'Item Image'; // Use item.media[0].alt for the alt text
+    
+    // Get the highest bid value for the item
+    const { highestBid } = getHighestBidValue(item); // Destructure the highest value
 
-    // Create the second div (description and price)
-    const { highestBid } = getHighestBidValue(auction);
-    const div2 = document.createElement('div');
-    div2.classList.add(
-      'flex', 'flex-col', 'items-center', 'justify-center', 
-      'lg:items-end', 'ml-3', 'mt-2', // Adjusted margin for better spacing
-      'sm:mt-2', 'lg:mt-10'
-    );
+    // Create the inner div for description and price
+    const textDiv = document.createElement('div');
+    textDiv.className = 'flex flex-col gap-2';
+    
+    // Create paragraph for description
     const description = document.createElement('p');
-    description.classList.add('text-gray-700', 'mb-1');
-    description.innerText = auction.description; // Auction description
-
+    description.textContent = item.description; // Assuming each item has a 'description' property
+    
+    // Create price paragraph and update to show highest value
     const price = document.createElement('p');
-    price.classList.add('font-bold',  'lg:text-sm');
-    price.innerText = `Price: $${highestBid || "0.00"}`;
-    div2.appendChild(description);
-    div2.appendChild(price);
-
-    // Create the third div (button)
-    const div3 = document.createElement('div');
-    div3.classList.add(
-      'mt-2', 'ml-3', 'mb-2', 
-      'sm:mt-2', 'lg:mt-8','flex', 'items-center', 'justify-center', 'sm:ml-3', 'lg:ml-8'
-    );
+    price.className = 'font-semibold text-blue-900 '
+    price.textContent = `Price: $${highestBid}`; // Use highestValue for price
+    
+    // Append description and price to textDiv
+    textDiv.appendChild(description);
+    textDiv.appendChild(price);
+    
+    // Create button
     const button = document.createElement('button');
-    button.classList.add(
-      'bg-blue-gray', 'border-2', 'border-white', 'text-white', 
-      'px-2', 'py-1', 'rounded', 'hover:bg-blue-400', 
-      'transition', 'border', 'border-white', 
-       'lg:text-xs'
-    );
-
-    button.innerText = 'View Auction';
-    // Attach click event to the button
-    button.addEventListener('click', () => {
-      window.location.href = `/post/index.html?singleList=${auction.id}`; // Redirect to auction page
+    button.type = 'button';
+    button.textContent = 'View auction'; // Button text
+    button.className = ' static md:absolute  md:right-8 md:top-1/2 md:-translate-y-1/2 bg-blue-gray w-fit p-1 m-auto font-semibold  text-white border-2';
+    button.addEventListener("click", () => {
+      window.location.href = `/post/index.html?singleList=${item.id}`;
     });
-    div3.appendChild(button);
-
-    // Append the three divs to the section
-    section.appendChild(div1);
-    section.appendChild(div2);
-    section.appendChild(div3);
-
-    // Append the section to the container
-    container.appendChild(section);
+    
+    // Append image, textDiv (description, price), and button to itemDiv
+    itemDiv.appendChild(img);
+    itemDiv.appendChild(textDiv);
+    itemDiv.appendChild(button);
+    
+    // Append title and itemDiv to section
+    section.appendChild(title);
+    section.appendChild(itemDiv);
+    
+    // Append the created section to the auction container
+    auctionContainer.appendChild(section);
   });
 }
+
+
+
+
+
+

@@ -49,7 +49,7 @@ export function renderAuctionPosts(auctions) {
       // Create the "Auction Ended" message div
       const endedList = document.createElement("div");
       endedList.className =
-        "absolute inset-0 flex justify-center items-center bg-light-blue opacity-80 text-black p-4 text-sm font-semibold";
+        "absolute inset-0 flex justify-center items-center bg-light-blue opacity-80 text-black p-4 text-xs font-semibold";
       endedList.textContent = "Auction of list is ended";
 
       // Append the "ended" message to the listing card

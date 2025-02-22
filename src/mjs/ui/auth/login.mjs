@@ -16,8 +16,7 @@ export async function onLogin(event) {
     });
     localStorage.setItem('verify_user', 'true')
     
-    alert("login successfully");
-
+    sessionStorage.setItem("loggedIn", 'true')
     window.location.href = "/";
   } catch (error) {
     console.error("Login failed:", error);
