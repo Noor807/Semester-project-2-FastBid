@@ -4,24 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"
-   />
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Login user</title>
     <script type="module" src="/src/app.mjs"></script>
   </head>
 
   <body class="font-Montserrat">
-    <main class="bgwhite flex justify-center items-center min-h-screen px-4 py-6">
-      <div class="bg-light-blue p-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
-        <h1 class="text-sm  font-bold text-black mb-6 text-center">
+    <main
+      class="bgwhite flex justify-center items-center min-h-screen px-4 py-6"
+    >
+      <div
+        class="bg-light-blue p-8 rounded-lg shadow-lg w-full max-w-md sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+      >
+        <h1 class="text-sm font-bold text-black mb-6 text-center">
           Login here
         </h1>
 
         <div class="form-container">
           <form id="login-form" name="login" class="space-y-6">
-            <!-- Email Input -->
             <div>
-              <label for="email-input" class="block font-semibold  text-white">
+              <label for="email-input" class="block font-semibold text-white">
                 Email
               </label>
               <input
@@ -34,9 +38,11 @@
               />
             </div>
 
-            <!-- Password Input -->
             <div>
-              <label for="password-input" class="block font-semibold  text-white">
+              <label
+                for="password-input"
+                class="block font-semibold text-white"
+              >
                 Password
               </label>
               <input
@@ -50,24 +56,25 @@
               />
             </div>
 
-            <!-- Submit Button -->
             <button
               id="login-btn"
               type="submit"
-              class="w-full bg-blue-gray  border-2 border-white font-bold text-white py-2 rounded-md hover:bg-blue-700 transition duration-200"
+              class="w-full bg-blue-gray border-2 border-white font-bold text-white py-2 rounded-md hover:bg-blue-700 transition duration-200"
             >
               Login
             </button>
 
-            <!-- Register Link -->
-            <p class="text-center  text-white">
+            <p class="text-center text-white">
               Don't have an account?
-              <a class="text-blue-700 hover:underline font-bold" href="/auth/register/">Register here</a>
+              <a
+                class="text-blue-700 hover:underline font-bold"
+                href="/auth/register/"
+                >Register here</a
+              >
             </p>
           </form>
         </div>
       </div>
     </main>
-
   </body>
 </html>

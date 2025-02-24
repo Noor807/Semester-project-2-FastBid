@@ -15,7 +15,6 @@
       <div
         class="navbar bg-dark-blue p-4 flex justify-between w-full fixed top-0 z-10 items-center"
       >
-        <!-- Logo  -->
         <a href="/" class="text-white">
           <img
             class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
@@ -23,7 +22,7 @@
             alt="noroff logo"
           />
         </a>
-        <!-- Hamburger Menu for Small Screens  -->
+
         <div class="lg:hidden flex items-center">
           <button id="hamburger-btn" class="text-white">
             <svg
@@ -42,17 +41,17 @@
             </svg>
           </button>
         </div>
-        <!-- Navigation Links -->
+
         <ul
           id="navbar-links"
           class="lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 hidden space-y-4 top-[100%] bg-dark-blue right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex flex-col justify-center"
         >
-          <li>
+          <li id="profile-link" class="hidden">
             <a href="/profile/" class="text-white font-semibold hover:underline"
               >My Profile</a
             >
           </li>
-          <li>
+          <li id="create-post-link" class="hidden">
             <a
               href="/post/create/"
               class="text-white font-semibold hover:underline"
@@ -60,10 +59,10 @@
             >
           </li>
           <li>
-            <button 
+            <button
               id="admin-btn"
               type="button"
-              class= " bg-yellow-700 text-white py-1 px-4 font-semibold rounded-md hover:bg-orange-500 transition"
+              class="bg-yellow-700 text-white py-1 px-4 font-semibold rounded-md hover:bg-orange-500 transition"
             >
               Logout
             </button>
@@ -73,11 +72,9 @@
     </header>
 
     <main class="h-auto bg-white relative mt-40 px-4">
-      <!-- Filtering and Search Bar -->
       <div
         class="mb-8 gap-5 flex flex-col sm:flex-col md:flex-row lg:flex-row justify-between items-center"
       >
-        <!-- Filter Bar -->
         <div class="flex space-x-4">
           <select
             id="categories"
@@ -94,11 +91,9 @@
             <option value="sports">Sports</option>
             <option value="cars">Car</option>
             <option value="toys">Toys</option>
-            <!-- Add more categories -->
           </select>
         </div>
 
-        <!-- Search Bar -->
         <div>
           <input
             type="text"
@@ -109,50 +104,59 @@
         </div>
       </div>
 
-      <!-- Listings Container -->
       <section class="blog-section py-8 px-4 sm:px-6 md:px-8 lg:px-16">
         <h1
           class="create-heading text-base sm:text-lg md:text-lg lg:text-xl font-bold text-gray-800 mb-14 text-center"
         >
           Exclusive Online Bid for Unbeatable Deals!
-          <!-- A Platform of Social Blogify post -->
         </h1>
 
         <div
           id="auctionContainer"
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
-         >
-         <div class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600  rounded-lg shadow-md animate-pulse">
-          <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
+        >
+          <div
+            class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600 rounded-lg shadow-md animate-pulse"
+          >
+            <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
             <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
             <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
-         </div> 
-         <div class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600  rounded-lg shadow-md animate-pulse">
-          <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
+          </div>
+          <div
+            class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600 rounded-lg shadow-md animate-pulse"
+          >
+            <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
             <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
             <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
-         </div> 
-         <div class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600  rounded-lg shadow-md animate-pulse">
-          <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
+          </div>
+          <div
+            class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600 rounded-lg shadow-md animate-pulse"
+          >
+            <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
             <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
             <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
-         </div> 
-         <div class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600  rounded-lg shadow-md animate-pulse">
-          <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
+          </div>
+          <div
+            class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600 rounded-lg shadow-md animate-pulse"
+          >
+            <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
             <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
             <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
-         </div> 
-         <div class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600  rounded-lg shadow-md animate-pulse">
-          <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
+          </div>
+          <div
+            class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600 rounded-lg shadow-md animate-pulse"
+          >
+            <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
             <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
             <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
-         </div> 
-         <div class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600  rounded-lg shadow-md animate-pulse">
-          <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
+          </div>
+          <div
+            class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600 rounded-lg shadow-md animate-pulse"
+          >
+            <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
             <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
             <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
-         </div> 
-        
+          </div>
         </div>
 
         <div
@@ -177,11 +181,10 @@
       </section>
     </main>
 
-    <footer class="bg-dark-pink text-bright-blue gap-5 py-8">
+    <footer class="bg-dark-blue text-bright-blue gap-5 py-8">
       <div
         class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
       >
-        <!-- First div: Privacy policy and About Us -->
         <div
           class="flex flex-col md:flex-col mb-6 md:mb-0 space-y-2 md:space-y-0 md:space-x-8 text-center md:text-left"
         >
@@ -189,7 +192,6 @@
           <a class="underline text-bright-blue" href="">About Us</a>
         </div>
 
-        <!-- Second div: Contact Us info -->
         <div class="text-center md:text-left">
           <p class="underline">Contact Us</p>
           <p>+123456789</p>
@@ -197,10 +199,8 @@
         </div>
       </div>
 
-      <!-- Divider line (white) -->
       <div class="border-t border-white my-4"></div>
 
-      <!-- Image centered underneath the divider -->
       <div class="flex justify-center my-4">
         <img
           class="max-w-[200px] md:max-w-[300px]"
@@ -209,7 +209,6 @@
         />
       </div>
 
-      <!-- Logo (left) -->
       <div class="mt-10 flex gap-10 left-0 bottom-0 ml-5 mb-2">
         <a href="/" class="text-white">
           <img
@@ -219,7 +218,7 @@
           />
         </a>
       </div>
-      <!-- Copyright -->
+
       <p class="text-center text-white mt-4">
         Copyright © 1995-2025 FastBid. All Rights Reserved
       </p>

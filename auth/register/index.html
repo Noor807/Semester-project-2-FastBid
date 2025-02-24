@@ -4,27 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
     />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.mjs"></script>
   </head>
 
-  <body class="bg-gray-50 font-Montserrat  text-white min-h-screen grid grid-rows-[auto_1fr_auto]">
-    <main class="bg-white flex justify-center items-center min-h-screen px-4 py-6">
-      
-      <!-- Form Container with responsive form elements -->
-      <div class="bg-light-blue p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-black">
-        <!-- Register Title with text-sm class for all screen sizes -->
-        <h1 class=" text-sm font-bold text-black mb-6 text-center w-full">
+  <body
+    class="bg-gray-50 font-Montserrat text-white min-h-screen grid grid-rows-[auto_1fr_auto]"
+  >
+    <main
+      class="bg-white flex justify-center items-center min-h-screen px-4 py-6"
+    >
+      <div
+        class="bg-light-blue p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-black"
+      >
+        <h1 class="text-sm font-bold text-black mb-6 text-center w-full">
           Register here
         </h1>
-        
+
         <form id="registration-form" name="register">
-          
-          <!-- Name Input with text-sm class for all screen sizes -->
           <div>
-            <label for="name" class="block font-semibold text-white">Name</label>
+            <label for="name" class="block font-semibold text-white"
+              >Name</label
+            >
             <input
               id="name"
               type="text"
@@ -37,9 +41,10 @@
             />
           </div>
 
-          <!-- Email Input with text-sm class for all screen sizes -->
           <div>
-            <label for="email" class="block font-semibold text-white">Email</label>
+            <label for="email" class="block font-semibold text-white"
+              >Email</label
+            >
             <input
               id="email"
               type="email"
@@ -51,9 +56,10 @@
             />
           </div>
 
-          <!-- Password Input with text-sm class for all screen sizes -->
           <div>
-            <label for="password" class="block font-semibold text-white">Password</label>
+            <label for="password" class="block font-semibold text-white"
+              >Password</label
+            >
             <input
               type="password"
               name="password"
@@ -64,7 +70,6 @@
             />
           </div>
 
-          <!-- Submit Button with text-sm class for all screen sizes -->
           <button
             id="login-btn"
             type="submit"
@@ -73,9 +78,13 @@
             Register
           </button>
 
-          <!-- Login Link with text-sm class for all screen sizes -->
-          <p class="text-center  text-white mt-2">
-            If you have an account? <a class="text-blue-700 hover:underline  font-bold" href="/auth/login/">Login here</a>
+          <p class="text-center text-white mt-2">
+            If you have an account?
+            <a
+              class="text-blue-700 hover:underline font-bold"
+              href="/auth/login/"
+              >Login here</a
+            >
           </p>
         </form>
       </div>

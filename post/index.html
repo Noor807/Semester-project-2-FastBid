@@ -13,9 +13,8 @@
   <body class="font-custom min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header>
       <div
-        class="navbar bg-dark-pink p-4 flex justify-between w-full fixed top-0 z-10 items-center"
+        class="navbar bg-dark-blue p-4 flex justify-between w-full fixed top-0 z-10 items-center"
       >
-        <!-- Logo  -->
         <a href="/" class="text-white">
           <img
             class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
@@ -23,7 +22,7 @@
             alt="noroff logo"
           />
         </a>
-        <!-- Hamburger Menu for Small Screens  -->
+
         <div class="lg:hidden flex items-center">
           <button id="hamburger-btn" class="text-white">
             <svg
@@ -42,17 +41,17 @@
             </svg>
           </button>
         </div>
-        <!-- Navigation Links -->
+
         <ul
           id="navbar-links"
-          class="lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 hidden space-y-4 top-[100%] bg-dark-pink right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex flex-col justify-center"
+          class="lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 hidden space-y-4 top-[100%] bg-dark-blue right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex flex-col justify-center"
         >
-          <li>
+          <li id="profile-link" class="hidden">
             <a href="/profile/" class="text-white font-semibold hover:underline"
               >My Profile</a
             >
           </li>
-          <li>
+          <li id="create-post-link" class="hidden">
             <a
               href="/post/create/"
               class="text-white font-semibold hover:underline"
@@ -74,41 +73,47 @@
 
     <main class="blog-brief px-4 py-6 mt-20 md:mt-40">
       <h1
-        class="text-lg sm:text-xs md:text-base  mt-12 mb-16 font-bold text-center text-gray-800 border-b-2"
+        class="text-lg sm:text-xs md:text-base mt-12 mb-16 font-bold text-center text-gray-800 border-b-2"
       >
         Single Auction post
       </h1>
 
-      <!-- Post container -->
       <div id="AuctionDetailContainer">
-        <div class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600  rounded-lg shadow-md animate-pulse">
+        <div
+          class="w-full min-h-[361px] flex justify-center items-center gap-2 border-2 border-black-600 rounded-lg shadow-md animate-pulse"
+        >
           <div class="w-5 bg-[#d991c2] animate-pulse h-5 rounded-full"></div>
-            <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
-            <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
-         </div> 
-         </div>
-      
-      <!-- Edit and Delete buttons -->
-      <div id="adminAction" class="hidden flex-col sm:flex-row justify-center gap-4 mt-6">
+          <div class="w-5 animate-pulse h-5 bg-[#9869b8] rounded-full"></div>
+          <div class="w-5 h-5 animate-pulse bg-[#6756cc] rounded-full"></div>
+        </div>
+      </div>
+
+      <div
+        id="adminAction"
+        class="hidden flex-col sm:flex-row justify-center gap-4 mt-6"
+      >
         <button
-          class="edit-btn  border-2 border-solid border-orange-500 font-semibold bg-blue-gray text-white py-2 px-6 rounded-md hover:bg-orange-400 transition duration-200"
+          class="edit-btn border-2 border-solid border-orange-500 font-semibold bg-blue-gray text-white py-2 px-6 rounded-md hover:bg-orange-400 transition duration-200"
         >
           Edit post
         </button>
         <button
-          class="del-btn  bg-blue-gray border-2 border-solid border-orange-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-orange-300 transition duration-200"
+          class="del-btn bg-blue-gray border-2 border-solid border-orange-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-orange-300 transition duration-200"
         >
           Delete post
         </button>
       </div>
 
       <div class="w-full max-w-xxl mt-28 mx-auto px-2 bg-slate-400">
-        <!-- Top Divider Line -->
-        <hr class="border-t border-blue-gray mb-4">
-      
+        <hr class="border-t border-blue-gray mb-4" />
+
         <form id="placeBid" method="POST" class="space-y-4">
           <div>
-            <label for="bid-amount" class="block text-sm font-semibold text-black">Place your bid</label>
+            <label
+              for="bid-amount"
+              class="block text-sm font-semibold text-black"
+              >Place your bid</label
+            >
             <input
               minlength="0"
               type="number"
@@ -118,31 +123,33 @@
               class="mt-2 w-full px-4 py-2 border-2 border-solid border-orange-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
-      
-          <div class="flex flex-col sm:flex-row justify-between items-center sm:space-x-4 mt-4">
+
+          <div
+            class="flex flex-col sm:flex-row justify-between items-center sm:space-x-4 mt-4"
+          >
             <button
               type="submit"
               class="w-full sm:w-auto px-6 py-2 border-2 border-white bg-blue-gray text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
               Place Bid
             </button>
-            
+
             <p class="font-semibold text-xs mt-4 sm:mt-0">
-              Current bid: <span class="font-semibold text-xs text-black" id="highestBid">$50.00</span>
+              Current bid:
+              <span class="font-semibold text-xs text-black" id="highestBid"
+                >$50.00</span
+              >
             </p>
           </div>
         </form>
-      
-        <!-- Bottom Divider Line -->
-        <hr class="border-t border-blue-gray mt-4">
-      </div> 
-      
+
+        <hr class="border-t border-blue-gray mt-4" />
+      </div>
     </main>
-    <footer class="bg-dark-pink text-bright-blue gap-5 py-8">
+    <footer class="bg-dark-blue text-bright-blue gap-5 py-8">
       <div
         class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
       >
-        <!-- First div: Privacy policy and About Us -->
         <div
           class="flex flex-col md:flex-col mb-6 md:mb-0 space-y-2 md:space-y-0 md:space-x-8 text-center md:text-left"
         >
@@ -150,7 +157,6 @@
           <a class="underline text-bright-blue" href="">About Us</a>
         </div>
 
-        <!-- Second div: Contact Us info -->
         <div class="text-center md:text-left">
           <p class="underline">Contact Us</p>
           <p>+123456789</p>
@@ -158,15 +164,16 @@
         </div>
       </div>
 
-      <!-- Divider line (white) -->
       <div class="border-t border-white my-4"></div>
 
-      <!-- Image centered underneath the divider -->
       <div class="flex justify-center my-4">
-        <img class="max-w-[200px] md:max-w-[300px]" src="/public/imgs/socials.png" alt="Group Image" />
+        <img
+          class="max-w-[200px] md:max-w-[300px]"
+          src="/public/imgs/socials.png"
+          alt="Group Image"
+        />
       </div>
 
-      <!-- Logo (left) -->
       <div class="mt-10 flex gap-10 left-0 bottom-0 ml-5 mb-2">
         <a href="/" class="text-white">
           <img
@@ -176,14 +183,10 @@
           />
         </a>
       </div>
-      <!-- Copyright -->
+
       <p class="text-center text-white mt-4">
         Copyright © 1995-2025 FastBid. All Rights Reserved
       </p>
     </footer>
   </body>
 </html>
-
-
-
-
