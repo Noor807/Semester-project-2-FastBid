@@ -26,7 +26,7 @@ export async function fetchAuctionProfile(user, token) {
     }
 const data = await response.json()
     // If successful, return the response data (usually confirmation message)
-    console.log('data');
+   
     const {credits} = data.data
     localStorage.setItem('credit' , credits)
     

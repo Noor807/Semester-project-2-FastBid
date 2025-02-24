@@ -32,11 +32,11 @@ import { toastMessage } from "../../utilities/toastMsg.mjs";
     try {
       const result = await createList(newPost , token);
     
-      //window.location.href = `/post/index.html?singleList=${result.data.id} `
+      window.location.href = `/post/index.html?singleList=${result.data.id} `
       toastMessage("list created successfully!" , 'success');
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to create list: " + error.message);
+      toastMessage("Failed to create list: " + error.message);
     }
   }
   

@@ -1,6 +1,7 @@
 // profile-update.js
 
 import { updateProfileAPI } from "../../api/profile/update";
+import { toastMessage } from "../../utilities/toastMsg.mjs";
 
 // User Handler Function for Form Submission
  export async function handleProfileFormSubmission(event) {
@@ -13,7 +14,7 @@ console.log('update profile');
   const token = localStorage.getItem('token')
   // Validate the inputs
   if ( !avatarUrl ) {
-    alert('Please fill out all fields before submitting.');
+   toastMessage('Please fill out required feild.' , "alert");
     return;
   }
 
@@ -21,7 +22,7 @@ console.log('update profile');
   updateProfileAPI(userName.name, avatarUrl, token)
     .then(updatedData => {
       if (updatedData) {
-        alert('Profile updated successfully!');
+        toastMessage('Profile updated successfully!', "success");
         // Optionally update the UI with the new profile info
         // e.g., update displayed, avatar, and banner on the page
       }

@@ -9,6 +9,7 @@
 //  */
 
 import { API_AUTH_LOGIN } from "../constants";
+import { fetchAuctionProfile } from "../profile/auctionProfile.mjs";
 
 export async function login({ email, password }) {
   try {
@@ -28,7 +29,7 @@ export async function login({ email, password }) {
     localStorage.setItem("token", data.data.accessToken);
     const adminUser = data.data;
     localStorage.setItem("adminUser", JSON.stringify(adminUser));
-
+     await fetchAuctionProfile(data.data.name, data.data.accessToken);
     return data;
   } catch (error) {
     console.error("Error during login:", error);

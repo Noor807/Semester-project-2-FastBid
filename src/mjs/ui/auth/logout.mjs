@@ -7,7 +7,6 @@ export function onLogout() {
   localStorage.removeItem("token");
   localStorage.removeItem("credit");
   localStorage.removeItem("adminUser");
-  localStorage.removeItem("verify_user");
-  
-  window.location.href = "/auth/login/";
+ 
+  window.location.href = "/";
 }

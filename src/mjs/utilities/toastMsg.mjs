@@ -1,27 +1,24 @@
 export function toastMessage(message, type = "success") {
-    console.log("🔥 I am roasting"); // First log
+    
 
     const main = document.querySelector("main");
-    console.log("📌 Main element found:", main); // Log if <main> exists
-    if (!main) return console.log("❌ No <main> found, stopping execution");
+    
+    if (!main) return 
 
-    const existingToast = document.querySelector(".toast-message");
-    console.log("🔍 Existing toast found:", existingToast); // Check for any existing toasts
-    if (existingToast) return console.log("🚨 Toast already exists, stopping execution");
 
     const duration = 5000;
 
     const toast = document.createElement("div");
-    toast.className = "toast-message fixed opacity-0 top-[-60px] right-4 transform transition-all duration-500 ease-in-out sm:top-[-50px] sm:right-4 sm:px-4 sm:py-3 md:top-[-40px] md:right-4 md:px-6 md:py-4 lg:top-1/4 lg:right-4 lg:px-8 lg:py-4 xl:top-1/4 xl:left-1/2 xl:transform-none xl:opacity-100 xl:px-6 xl:py-5";
+    toast.className = "toast-message flex fixed top-28 md:top-52  p-3  right-4 w-full max-w-fit transform transition-all duration-500 ease-in-out ";
     const iconWrapper = document.createElement("div");
 
     const text = document.createElement("div");
-    text.className = "w-full max-w-50 md:max-w-58 font-body text-wrap";
+    text.className = "w-full max-w-50 mr-12 md:max-w-58 font-body text-wrap";
     text.textContent = message;
 
     const closeButton = document.createElement("button");
     closeButton.type = "button";
-    closeButton.classList.add("absolute", "top-2", "right-2", "z-10");
+    closeButton.classList.add("absolute", "top-1/2", "-translate-y-1/2", "right-2", "z-10");
     closeButton.innerHTML = `
         <span class="inline">
             <svg class="fill-current h-6 w-6" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

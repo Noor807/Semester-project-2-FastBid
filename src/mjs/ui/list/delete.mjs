@@ -3,6 +3,7 @@
  */
 
 import { deleteAuction } from "../../api/list/delete.mjs";
+import { toastMessage } from "../../utilities/toastMsg.mjs";
 
 export async function onDeletePost(event) {
   event.preventDefault();
@@ -22,19 +23,20 @@ export async function onDeletePost(event) {
     const result = await deleteAuction(id , token);
     
     
-    if (result.success)  {
-      window.location.href = "/";
-    alert('remove list successfully');
+    if (result)  {
+      sessionStorage.setItem('deleteList', true)
+        window.location.href = "/";
+    
        
     }else{
       console.error("Failed to delete list:", result.error);
-    alert("Error: Could not delete the list.");
+    toastMessage("Error: Could not delete the list." , "error");
 
     }
    
   } catch (error) {
     console.error("Unexpected error:", error);
-    alert("Error: Could not delete the list.");
+    toastMessage("Error: Could not delete the list.", "error");
 
   }
 }

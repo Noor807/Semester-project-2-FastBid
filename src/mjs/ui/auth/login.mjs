@@ -14,7 +14,7 @@ export async function onLogin(event) {
       email,
       password,
     });
-    localStorage.setItem('verify_user', 'true')
+   
     
     sessionStorage.setItem("loggedIn", 'true')
     window.location.href = "/";
