@@ -25,11 +25,11 @@ export async function login({ email, password }) {
     }
 
     const data = await response.json();
-   
+
     localStorage.setItem("token", data.data.accessToken);
     const adminUser = data.data;
     localStorage.setItem("adminUser", JSON.stringify(adminUser));
-     await fetchAuctionProfile(data.data.name, data.data.accessToken);
+    await fetchAuctionProfile(data.data.name, data.data.accessToken);
     return data;
   } catch (error) {
     console.error("Error during login:", error);

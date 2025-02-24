@@ -1,6 +1,5 @@
 import { API_AUCTION } from "../constants.mjs";
 
-
 /**
  * Fetches a single auction post by ID from the API with authentication.
  *
@@ -10,33 +9,29 @@ import { API_AUCTION } from "../constants.mjs";
  */
 export async function fetchSingleAuction(auctionId) {
   try {
-   
-    // Fetch auction listing by ID from the API with the Authorization header
-    const response = await fetch(`${API_AUCTION}/${auctionId}?_seller=true&_bids=true`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${API_AUCTION}/${auctionId}?_seller=true&_bids=true`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
-    });
+    );
 
-    // Check if the response is ok (status 200-299)
     if (!response.ok) {
       throw new Error(`Failed to fetch auction with ID: ${auctionId}`);
     }
 
-    // Parse the response to get the auction data
     const auctionData = await response.json();
-console.log(auctionData);
+    console.log(auctionData);
 
-
-    // Return the auction data
     return auctionData;
   } catch (error) {
     console.error("Error fetching single auction:", error);
-    throw error; // Re-throw error to be handled where the function is called
+    throw error;
   }
 }
-
 
 /**
  * 

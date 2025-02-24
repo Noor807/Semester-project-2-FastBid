@@ -14,9 +14,8 @@ export async function onLogin(event) {
       email,
       password,
     });
-   
-    
-    sessionStorage.setItem("loggedIn", 'true')
+
+    sessionStorage.setItem("loggedIn", "true");
     window.location.href = "/";
   } catch (error) {
     console.error("Login failed:", error);

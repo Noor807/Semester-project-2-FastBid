@@ -1,11 +1,9 @@
 import { editAuction } from "../../api/list/update";
 import { toastMessage } from "../../utilities/toastMsg.mjs";
 
-// Handle form submission for editing an auction listing
 export async function handleEditAuctionFormSubmit(e, auctionId) {
-  e.preventDefault(); // Prevent form from submitting normally
+  e.preventDefault();
 
-  // Get form values
   const title = e.target.title.value.trim();
   const description = e.target.description.value.trim();
   const mediaUrl = e.target.mediaUrl.value.trim();
@@ -14,7 +12,6 @@ export async function handleEditAuctionFormSubmit(e, auctionId) {
     ? e.target.tags.value.split(",").map((tag) => tag.trim())
     : [];
 
-  // Validate required fields
   if (
     !title &&
     !description &&
@@ -26,14 +23,12 @@ export async function handleEditAuctionFormSubmit(e, auctionId) {
     return;
   }
 
-  // Get the token from localStorage
   const token = localStorage.getItem("token");
   if (!token) {
     toastMessage("You must be logged in to edit an auction.");
     return;
   }
 
-  // Prepare the updated auction data
   const updatedAuction = {
     title: title,
     description: description,
@@ -42,14 +37,11 @@ export async function handleEditAuctionFormSubmit(e, auctionId) {
   };
 
   try {
-    // Call the editAuction function to update the auction listing
     const result = await editAuction(auctionId, updatedAuction, token);
 
-    // Notify the user of the successful update
-   sessionStorage.setItem("updatedSuccess",'true');
+    sessionStorage.setItem("updatedSuccess", "true");
 
-    // Optionally, redirect after successful update
-    window.location.href = `/post/index.html?singleList=${auctionId}`; // Redirect to the updated auction page
+    window.location.href = `/post/index.html?singleList=${auctionId}`;
   } catch (error) {
     console.error("Error:", error);
     toastMessage("Failed to update auction listing: " + error.message);

@@ -1,15 +1,13 @@
 import { onLogout } from "../auth/logout.mjs";
 
-// Function to update the admin button based on login state
 export function updateAdminButton() {
   const adminBtn = document.querySelector("#admin-btn");
   const token = localStorage.getItem("token");
 
   if (!adminBtn) return;
 
-  // Remove existing event listeners by replacing the button
   adminBtn.replaceWith(adminBtn.cloneNode(true));
-  const newBtn = document.querySelector("#admin-btn"); // Re-select button
+  const newBtn = document.querySelector("#admin-btn");
 
   if (token) {
     newBtn.textContent = "Logout";
@@ -22,13 +20,11 @@ export function updateAdminButton() {
   }
 }
 
-// Function to update the navigation links based on login state
 export function updateNavigation() {
   const token = localStorage.getItem("token");
   const profileLink = document.getElementById("profile-link");
   const createPostLink = document.getElementById("create-post-link");
 
-  // Check if the elements exist before manipulating them
   if (profileLink) {
     if (token) {
       profileLink.classList.remove("hidden");
@@ -46,7 +42,5 @@ export function updateNavigation() {
   }
 }
 
-
-// Call both functions to update the page when it's loaded
 updateAdminButton();
 updateNavigation();

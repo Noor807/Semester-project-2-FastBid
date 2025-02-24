@@ -10,7 +10,7 @@ export async function onDeletePost(event) {
 
   const button = event.target;
   const id = button.dataset.id;
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
   if (!id) {
     console.error("listID not found.");
     return;
@@ -20,23 +20,17 @@ export async function onDeletePost(event) {
   if (!confirmation) return;
 
   try {
-    const result = await deleteAuction(id , token);
-    
-    
-    if (result)  {
-      sessionStorage.setItem('deleteList', true)
-        window.location.href = "/";
-    
-       
-    }else{
-      console.error("Failed to delete list:", result.error);
-    toastMessage("Error: Could not delete the list." , "error");
+    const result = await deleteAuction(id, token);
 
+    if (result) {
+      sessionStorage.setItem("deleteList", true);
+      window.location.href = "/";
+    } else {
+      console.error("Failed to delete list:", result.error);
+      toastMessage("Error: Could not delete the list.", "error");
     }
-   
   } catch (error) {
     console.error("Unexpected error:", error);
     toastMessage("Error: Could not delete the list.", "error");
-
   }
 }

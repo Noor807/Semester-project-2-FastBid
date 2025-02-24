@@ -3,10 +3,9 @@
  */
 
 export function onLogout() {
-
   localStorage.removeItem("token");
   localStorage.removeItem("credit");
   localStorage.removeItem("adminUser");
- 
+
   window.location.href = "/";
 }

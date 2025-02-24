@@ -4,12 +4,11 @@ import { handleEditAuctionFormSubmit } from "../../ui/list/update";
 import { authGuard } from "../../utilities/authGuard";
 import { populateFormWithAuctionData } from "../../utilities/populateform";
 
-setLogoutListener
+setLogoutListener;
 authGuard;
 
-// Get auction ID from URL (assuming it's in the query parameter)
 const urlParams = new URLSearchParams(window.location.search);
-const auctionId = urlParams.get("post"); // Assuming URL has ?id=auction-id-123
+const auctionId = urlParams.get("post");
 const listData = await fetchSingleAuction(auctionId);
 const editForm = document.getElementById("edit-auction-form");
 populateFormWithAuctionData(listData.data);
