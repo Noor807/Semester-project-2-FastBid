@@ -23,7 +23,7 @@ export default {
           'xl': '1280px',
         },
         fontFamily: {
-          'custom': ['Montserrat', 'serif'], // Add your custom font family here
+          'custom': ['Montserrat','serif'] // Add your custom font family here//
         },
         colors: {
           'dark-pink': '#110F1C',
