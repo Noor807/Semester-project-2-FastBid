@@ -2,6 +2,7 @@ export function toastMessage(message, type = "success") {
   const main = document.querySelector("main");
 
   if (!main) return;
+  if (document.querySelector(".toast-message")) return;
 
   const duration = 5000;
 

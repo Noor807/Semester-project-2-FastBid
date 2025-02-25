@@ -42,3 +42,8 @@ if (sessionStorage.getItem("deleteList") === "true") {
   toastMessage("List has be deleted", "success");
   sessionStorage.removeItem("deleteList");
 }
+
+if (localStorage.getItem("logout") === "true") {
+  toastMessage("you loggged out", "success");
+  localStorage.removeItem("logout");
+}

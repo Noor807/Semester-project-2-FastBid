@@ -1,51 +1,43 @@
 import { placeBidApi } from "../../api/list/bid.mjs";
+import { toastMessage } from "../../utilities/toastMsg.mjs";
 
 export async function handleBidSubmission(id, highestBid, bidAmount) {
   const credit = parseFloat(localStorage.getItem("credit")) || 0;
   const token = localStorage.getItem("token");
 
-  console.log("Bid Submission - Credit:", credit);
-  console.log("Bid Submission - Token:", token);
-  console.log("Bid Submission - Amount:", bidAmount);
-  console.log("Bid Submission - Highest Bid:", highestBid);
-
   if (!token) {
-   alert("You need to log in to place a bid.");
-    console.log("No token found. Bid not placed.");
+   toastMessage("You need to log in to place a bid.", 'alert');
+
     return;
   }
 
   if (!bidAmount || bidAmount <= 0) {
-    alert("Please enter a valid bid amount.");
-    console.log("Invalid bid amount:", bidAmount);
+    toastMessage("Please enter a valid bid amount.", 'alert');
+
     return;
   }
 
   if (bidAmount <= highestBid) {
-    alert(`Your bid must be higher than ${highestBid}.`);
-    console.log("Bid amount is not higher than the highest bid.");
+    toastMessage(`Your bid must be higher than ${highestBid}.`, 'alert');
+
     return;
   }
 
   if (bidAmount > credit) {
-    alert("You do not have enough funds to place a bid.");
-    console.log("Bid amount exceeds available credit.");
+    toastMessage("You do not have enough funds to place a bid.",'alert');
+
     return;
   }
 
   try {
     const result = await placeBidApi(id, bidAmount, token);
 
-    if (result.success) {
-      alert(result.message);
-      console.log("Bid placed successfully:", result.message);
+    if (result) {
+      toastMessage(result.message, 'success');
     } else {
-      alert(`Failed to place bid: ${result.message}`);
-      console.log("Bid failed:", result.message);
+      toastMessage(`Failed to place bid: ${result.message}`, 'error');
     }
   } catch (log) {
-    console.log("Error placing bid:" );
-    alert("There was an log placing your bid. Please try again." );
-    console.log("Error placing bid:");
+    toastMessage("There was an log placing your bid. Please try again.", 'error');
   }
 }

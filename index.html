@@ -24,7 +24,7 @@
         </a>
 
         <div class="lg:hidden flex items-center">
-          <button id="hamburger-btn" class="text-white">
+          <button aria-label="toggle-button" id="hamburger-btn" class="text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -95,12 +95,16 @@
         </div>
 
         <div>
-          <input
+          <label for="search-input" aria-label="search for listing">
+            <input
             type="text"
             class="px-4 py-2 border-2 border-light-blue rounded-md"
+            
             placeholder="Search listings..."
             id="search-input"
           />
+          </label>
+          
         </div>
       </div>
 

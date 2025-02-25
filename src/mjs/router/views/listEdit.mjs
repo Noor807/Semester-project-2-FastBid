@@ -1,5 +1,4 @@
 import { fetchSingleAuction } from "../../api/list/singleListRead";
-import { setLogoutListener } from "../../ui/global/logout";
 import { handleEditAuctionFormSubmit } from "../../ui/list/update";
 import { authGuard } from "../../utilities/authGuard";
 import { populateFormWithAuctionData } from "../../utilities/populateform";
