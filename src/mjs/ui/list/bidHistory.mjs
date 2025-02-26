@@ -2,10 +2,10 @@ export async function createBidHistoryModal(bids) {
   const modal = document.createElement("div");
   modal.id = "bidHistoryModal";
   modal.className =
-    "fixed inset-0 bg-black bg-opacity-50 mt-15 flex justify-center items-center hidden";
+    "fixed inset-0 bg-black  mt-20 bg-opacity-50 mt-15 flex justify-center items-center hidden";
 
   const modalContent = document.createElement("div");
-  modalContent.className = "bg-white p-4 rounded-lg w-96 shadow-lg";
+  modalContent.className = "bg-white p-4  rounded-lg w-96 shadow-lg";
 
   const closeButton = document.createElement("button");
   closeButton.innerText = "Close";
@@ -18,7 +18,7 @@ export async function createBidHistoryModal(bids) {
   sortList.forEach((bid) => {
     const bidContainer = document.createElement("div");
     bidContainer.className =
-      "flex justify-between mt-20 items-center w-full border-b py-2 md:py-4";
+      "flex justify-between  items-center w-full border-b py-2 md:py-4";
 
     const userInfo = document.createElement("div");
     userInfo.className = "flex items-center space-x-4";
