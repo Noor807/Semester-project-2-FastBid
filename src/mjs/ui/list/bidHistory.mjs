@@ -8,12 +8,12 @@ export async function createBidHistoryModal(bids) {
   
   const modalContent = document.createElement("div");
   modalContent.className =
-    "bg-white p-4 rounded-lg w-96 max-h-[60vh] overflow-y-auto shadow-lg"; 
+    "bg-white p-4 rounded-lg w-200 max-h-[70vh] overflow-y-auto shadow-lg"; 
 
   
   const closeButton = document.createElement("button");
   closeButton.innerText = "Close";
-  closeButton.className = "text-red-500 font-bold float-right";
+  closeButton.className = "text-red-500 font-semibold float-right";
   closeButton.onclick = () => (modal.style.display = "none");
 
   
@@ -36,14 +36,14 @@ export async function createBidHistoryModal(bids) {
     img.alt = `${bid.bidder.name}'s avatar`;
 
     const username = document.createElement("p");
-    username.className = "text-xs md:text-base font-semibold";
+    username.className = "font-semibold";
     username.innerText = bid.bidder.name;
 
     userInfo.appendChild(img);
     userInfo.appendChild(username);
 
     const bidAmount = document.createElement("p");
-    bidAmount.className = "text-xs md:text-base";
+    bidAmount.className = "bold text-sm";
     bidAmount.innerHTML = `Bid amount: <span class="font-bold">${bid.amount}</span>`;
 
     bidContainer.appendChild(userInfo);
