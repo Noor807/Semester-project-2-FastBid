@@ -3,7 +3,7 @@ export async function createBidHistoryModal(bids) {
   const modal = document.createElement("div");
   modal.id = "bidHistoryModal";
   modal.className =
-    "fixed inset-0 bg-black bg-opacity-50 mt-30 flex justify-center items-center hidden"; 
+    "fixed inset-0 bg-black bg-opacity-50 mt-20 lg:mt-30 flex justify-center items-center hidden"; 
 
   
   const modalContent = document.createElement("div");
