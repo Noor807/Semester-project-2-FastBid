@@ -5,8 +5,6 @@ export async function placeBidApi(id, amount, token) {
     throw new Error("Invalid parameters for bid request.");
   }
   const url = `${API_AUCTION}/${id}/bids`;
-  console.log("Placing bid at URL:", url);
-  console.log("With payload:", JSON.stringify({ amount }));
 
   const headers = {
     "Content-Type": "application/json",
@@ -32,7 +30,7 @@ export async function placeBidApi(id, amount, token) {
     }
 
     const data = await response.json();
-    console.log("Bid placed successfully:", data);
+
     return { success: true, message: "Bid placed successfully!" };
   } catch (error) {
     console.error("Error placing bid:", error);

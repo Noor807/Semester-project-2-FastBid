@@ -31,7 +31,7 @@ export async function fetchAllAuctions(
       newUrl = `${API_AUCTION}?limit=${limit}&page=${page}&_seller=true&_bids=true`;
     }
 
-    console.log("Fetching:", newUrl);
+    
 
     const response = await fetch(newUrl, {
       method: "GET",
@@ -43,7 +43,7 @@ export async function fetchAllAuctions(
     }
 
     const auctionData = await response.json();
-    console.log("Fetched Auctions:", auctionData);
+   
     return auctionData;
   } catch (error) {
     console.error("Error fetching auction listings:", error);

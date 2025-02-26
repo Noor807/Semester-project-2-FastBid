@@ -3,7 +3,6 @@ import { toastMessage } from "../../utilities/toastMsg.mjs";
 
 export async function handleProfileFormSubmission(event) {
   event.preventDefault();
-  console.log("update profile");
 
   const avatarUrl = document.getElementById("profileAvatar").value;
   const userName = JSON.parse(localStorage.getItem("adminUser"));

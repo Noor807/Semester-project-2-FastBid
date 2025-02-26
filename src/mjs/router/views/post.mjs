@@ -27,10 +27,8 @@ async function hidden(data) {
 }
 hidden(auctionData.data);
 
-console.log(auctionData);
 const { highestBid } = getHighestBidValue(auctionData.data);
 document.getElementById("highestBid").textContent = `${highestBid}$`;
-console.log(highestBid);
 
 renderSingleAuction(auctionData.data);
 
@@ -76,8 +74,6 @@ document
   .addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    console.log("place-bid");
-
     let bidAmount = document.getElementById("bid-amount").value;
     const finalBid = parseInt(bidAmount, 10);
     let currentBalance = parseFloat(localStorage.getItem("credit")) || 0;
@@ -86,9 +82,6 @@ document
       console.error("Post ID or bid amount is missing");
       return;
     }
-
-    console.log("Post ID:", postId);
-    console.log("Highest Bid:", highestBid);
 
     await handleBidSubmission(postId, highestBid, finalBid);
     currentBalance -= finalBid;

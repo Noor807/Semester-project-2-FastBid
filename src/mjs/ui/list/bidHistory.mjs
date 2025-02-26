@@ -1,27 +1,27 @@
 export async function createBidHistoryModal(bids) {
-  // Modal container with background overlay, fixed to the screen
+  
   const modal = document.createElement("div");
   modal.id = "bidHistoryModal";
   modal.className =
-    "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden"; // Added full screen overlay with opacity
+    "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden"; 
 
-  // Modal content container, allowing scrolling
+  
   const modalContent = document.createElement("div");
   modalContent.className =
-    "bg-white p-4 rounded-lg w-96 max-h-[60vh] overflow-y-auto shadow-lg"; // Added max-height and overflow to allow scrolling
+    "bg-white p-4 rounded-lg w-96 max-h-[60vh] overflow-y-auto shadow-lg"; 
 
-  // Close button
+  
   const closeButton = document.createElement("button");
   closeButton.innerText = "Close";
   closeButton.className = "text-red-500 font-bold float-right";
   closeButton.onclick = () => (modal.style.display = "none");
 
-  // Sort the bids by amount
+  
   const sortList = bids.sort((a, b) => b.amount - a.amount);
 
   modalContent.appendChild(closeButton);
 
-  // Loop through the bids to create individual bid containers
+  
   sortList.forEach((bid) => {
     const bidContainer = document.createElement("div");
     bidContainer.className =

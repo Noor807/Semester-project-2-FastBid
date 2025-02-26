@@ -7,7 +7,6 @@ export async function createList(formData, authToken) {
       Authorization: `Bearer ${authToken}`,
       "X-Noroff-API-Key": API_KEY,
     };
-    console.log("url", API_AUCTION);
 
     const response = await fetch(API_AUCTION, {
       method: "POST",

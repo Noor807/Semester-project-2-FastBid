@@ -24,7 +24,6 @@ export async function fetchSingleAuction(auctionId) {
     }
 
     const auctionData = await response.json();
-    console.log(auctionData);
 
     return auctionData;
   } catch (error) {

@@ -3,8 +3,6 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export async function editAuction(id, formData, authToken) {
   try {
-    console.log("formData", formData);
-
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${authToken}`,

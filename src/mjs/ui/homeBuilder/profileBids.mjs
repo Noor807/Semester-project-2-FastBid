@@ -2,7 +2,6 @@ export async function generateAuctionBids(auctions) {
   const container = document.getElementById("myBids");
 
   container.innerHTML = "";
-  console.log("test", auctions);
 
   auctions.forEach((auction) => {
     const outerDiv = document.createElement("div");
@@ -35,18 +34,12 @@ export async function generateAuctionBids(auctions) {
 
     const title = document.createElement("h3");
     title.textContent = auction.listing.title;
-    title.classList.add("font-semibold","text-xs");
+    title.classList.add("font-semibold", "text-xs");
 
     const img = document.createElement("img");
     img.src = auction.listing.media[0]?.url || "";
     img.alt = auction.listing.media[0]?.alt || "Image";
-    img.classList.add(
-      "w-20",
-      "h-20",
-      "object-cover",
-      "rounded-lg",
-      "sm:mr-4"
-    );
+    img.classList.add("w-20", "h-20", "object-cover", "rounded-lg", "sm:mr-4");
 
     innerDiv1.appendChild(title);
     innerDiv1.appendChild(img);

@@ -23,7 +23,6 @@ hamburgerBtn.addEventListener("click", () => {
 async function fetchAndRenderAuctions() {
   try {
     const auctionData = await fetchAllAuctions();
-    console.log("auctiondata", auctionData);
 
     renderAuctionPosts(auctionData.data);
   } catch (error) {
