@@ -2,11 +2,11 @@ export async function createBidHistoryModal(bids) {
   const modal = document.createElement("div");
   modal.id = "bidHistoryModal";
   modal.className =
-    "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden";
+  "bg-white p-4 rounded-lg w-96 max-h-[80vh] overflow-y-auto shadow-lg";
 
   const modalContent = document.createElement("div");
   modalContent.className =
-    "bg-white p-4 rounded-lg w-96 max-h-[600px] overflow-y-auto shadow-lg"; // Adjusted for scroll and responsive height
+    "bg-white p-4 rounded-lg w-96 shadow-lg"; 
 
   const closeButton = document.createElement("button");
   closeButton.innerText = "Close";
