@@ -17,26 +17,34 @@ export async function createBidHistoryModal(bids) {
 
   sortList.forEach((bid) => {
     const bidContainer = document.createElement("div");
-    bidContainer.className = "flex justify-between w-full border-b py-2";
+    bidContainer.className =
+      "flex justify-between items-center w-full border-b py-2 md:py-4";
 
     const userInfo = document.createElement("div");
+    userInfo.className = "flex items-center space-x-4";
 
     const img = document.createElement("img");
-    img.className = "w-20 h-20 rounded-e-full";
+    img.className = "w-16 h-16 rounded-full md:w-20 md:h-20";
     img.src = bid.bidder.avatar.url || "default-avatar.png";
     img.alt = `${bid.bidder.name}'s avatar`;
 
     const username = document.createElement("p");
+    username.className = "text-sm md:text-base font-semibold";
     username.innerText = bid.bidder.name;
 
     userInfo.appendChild(img);
     userInfo.appendChild(username);
 
     const bidAmount = document.createElement("p");
-    bidAmount.innerHTML = `Bid amount: <span>${bid.amount}</span>`;
+    bidAmount.className = "text-sm md:text-base";
+    bidAmount.innerHTML = `Bid amount: <span class="font-bold">${bid.amount}</span>`;
 
     bidContainer.appendChild(userInfo);
     bidContainer.appendChild(bidAmount);
+
+    const modalContent = document.querySelector(".modal-content");
+    modalContent.className = "max-h-[400px] overflow-y-auto";
+
     modalContent.appendChild(bidContainer);
   });
 
