@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>FastBid Register new User</title>
+    <script type="module" crossorigin src="../../assets/app-CsyrF5jv.js"></script>
+    <link rel="stylesheet" crossorigin href="../../assets/app-C4D1r-aN.css">
+  </head>
+
+  <body
+    class="bg-gray-50 font-Montserrat text-white min-h-screen grid grid-rows-[auto_1fr_auto]"
+  >
+    <main
+      class="bg-white flex justify-center items-center min-h-screen px-4 py-6"
+    >
+      <div
+        class="bg-light-blue p-8 rounded-lg shadow-lg w-full max-w-md border-2 border-black"
+      >
+        <h1 class="text-sm font-bold text-black mb-6 text-center w-full">
+          Register here
+        </h1>
+
+        <form id="registration-form" name="register">
+          <div>
+            <label for="name" class="block font-semibold text-white"
+              >Name</label
+            >
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              maxlength="20"
+              pattern="^[\w]+$"
+              title="Please enter a username using only letters and numbers"
+              class="mt-1 block text-black w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block font-semibold text-white"
+              >Email</label
+            >
+            <input
+              id="email"
+              type="email"
+              name="email"
+              class="mt-1 block text-black w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+              title="Please enter a valid noroff.no or stud.noroff.no address"
+            />
+          </div>
+
+          <div>
+            <label for="password" class="block font-semibold text-white"
+              >Password</label
+            >
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              minlength="8"
+              class="mt-1 block text-black w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <button
+            id="login-btn"
+            type="submit"
+            class="w-full bg-blue-gray font-semibold border-2 border-white text-white py-1 rounded-md hover:bg-blue-700 transition duration-200 mt-4"
+          >
+            Register
+          </button>
+
+          <p class="text-center text-white mt-2">
+            If you have an account?
+            <a
+              class="text-blue-700 hover:underline font-bold"
+              href="/auth/login/"
+              >Login here</a
+            >
+          </p>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

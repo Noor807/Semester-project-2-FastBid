@@ -35,7 +35,7 @@ export function renderAuctionPosts(auctions) {
 
     const listingCard = document.createElement("div");
     listingCard.className =
-      "listing-card cursor-pointer p-4 border-2 border-black-600 relative rounded-lg shadow-md transition-transform transform hover:scale-105"; Added padding, border, and hover effects
+      "listing-card cursor-pointer p-4 border-2 border-black-600 relative rounded-lg shadow-md transition-transform transform hover:scale-105"; 
     listingCard.addEventListener("click", () => {
       window.location.href = `/post/index.html?singleList=${auction.id}`;
     });

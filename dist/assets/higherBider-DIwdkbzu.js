@@ -1,0 +1,1 @@
+function h(e){if(!e.bids||e.bids.length===0)return{highestBid:0,highestBidName:null};const i=e.bids.reduce((t,n)=>n.amount>t.amount?n:t,{amount:0,bidder:{name:null}});return{highestBid:i.amount,highestBidName:i.bidder.name}}export{h as g};
