@@ -35,7 +35,7 @@ export function renderAuctionPosts(auctions) {
 
     const listingCard = document.createElement("div");
     listingCard.className =
-      "listing-card cursor-pointer p-4 border-2 border-black-600 relative rounded-lg shadow-md transition-transform transform hover:scale-105"; // Added padding, border, and hover effects
+      "listing-card cursor-pointer p-4 border-2 border-black-600 relative rounded-lg shadow-md transition-transform transform hover:scale-105"; Added padding, border, and hover effects
     listingCard.addEventListener("click", () => {
       window.location.href = `/post/index.html?singleList=${auction.id}`;
     });
@@ -114,6 +114,7 @@ export function renderAuctionPosts(auctions) {
     createdP.className = "text-gray-600";
     timeDiv.appendChild(createdP);
 
+  
     const updatedP = document.createElement("p");
     updatedP.textContent = `Updated: ${new Date(
       auction.updated
