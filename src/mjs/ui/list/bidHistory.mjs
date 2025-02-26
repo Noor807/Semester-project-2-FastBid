@@ -3,7 +3,7 @@ export async function createBidHistoryModal(bids) {
   const modal = document.createElement("div");
   modal.id = "bidHistoryModal";
   modal.className =
-    "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden"; 
+    "fixed inset-0 bg-black bg-opacity-50 mt-30 flex justify-center items-center hidden"; 
 
   
   const modalContent = document.createElement("div");
@@ -43,8 +43,8 @@ export async function createBidHistoryModal(bids) {
     userInfo.appendChild(username);
 
     const bidAmount = document.createElement("p");
-    bidAmount.className = "bold text-sm";
-    bidAmount.innerHTML = `Bid amount: <span class="font-bold">${bid.amount}</span>`;
+    bidAmount.className = "semibold";
+    bidAmount.innerHTML = `Bid amount: <span class="font-bold">$${bid.amount}</span>`;
 
     bidContainer.appendChild(userInfo);
     bidContainer.appendChild(bidAmount);
