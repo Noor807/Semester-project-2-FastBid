@@ -8,7 +8,7 @@ export async function createBidHistoryModal(bids) {
   // Modal content container, allowing scrolling
   const modalContent = document.createElement("div");
   modalContent.className =
-    "bg-white p-4 rounded-lg w-96 max-h-[80vh] overflow-y-auto shadow-lg"; // Added max-height and overflow to allow scrolling
+    "bg-white p-4 rounded-lg w-96 max-h-[60vh] overflow-y-auto shadow-lg"; // Added max-height and overflow to allow scrolling
 
   // Close button
   const closeButton = document.createElement("button");
