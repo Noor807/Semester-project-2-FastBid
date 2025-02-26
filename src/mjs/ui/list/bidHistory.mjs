@@ -44,7 +44,7 @@ export async function createBidHistoryModal(bids) {
 
     const bidAmount = document.createElement("p");
     bidAmount.className = "semibold";
-    bidAmount.innerHTML = `Bid amount: <span class="font-bold">$${bid.amount}</span>`;
+    bidAmount.innerHTML = `Bid : <span class="font-bold">$${bid.amount}</span>`;
 
     bidContainer.appendChild(userInfo);
     bidContainer.appendChild(bidAmount);
