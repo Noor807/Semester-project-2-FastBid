@@ -6,7 +6,7 @@ export async function createBidHistoryModal(bids) {
 
   const modalContent = document.createElement("div");
   modalContent.className =
-    "bg-white p-4 rounded-lg w-96 max-h-[80vh] overflow-y-auto shadow-lg"; // Adjusted for scroll and responsive height
+    "bg-white p-4 rounded-lg w-96 max-h-[600px] overflow-y-auto shadow-lg"; // Adjusted for scroll and responsive height
 
   const closeButton = document.createElement("button");
   closeButton.innerText = "Close";
