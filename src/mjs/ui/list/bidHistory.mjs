@@ -18,7 +18,7 @@ export async function createBidHistoryModal(bids) {
   sortList.forEach((bid) => {
     const bidContainer = document.createElement("div");
     bidContainer.className =
-      "flex justify-between items-center w-full border-b py-2 md:py-4";
+      "flex justify-between mt-20 items-center w-full border-b py-2 md:py-4";
 
     const userInfo = document.createElement("div");
     userInfo.className = "flex items-center space-x-4";
@@ -29,14 +29,14 @@ export async function createBidHistoryModal(bids) {
     img.alt = `${bid.bidder.name}'s avatar`;
 
     const username = document.createElement("p");
-    username.className = "text-sm md:text-base font-semibold";
+    username.className = "text-xs md:text-base font-semibold";
     username.innerText = bid.bidder.name;
 
     userInfo.appendChild(img);
     userInfo.appendChild(username);
 
     const bidAmount = document.createElement("p");
-    bidAmount.className = "text-sm md:text-base";
+    bidAmount.className = "text-xs md:text-base";
     bidAmount.innerHTML = `Bid amount: <span class="font-bold">${bid.amount}</span>`;
 
     bidContainer.appendChild(userInfo);
