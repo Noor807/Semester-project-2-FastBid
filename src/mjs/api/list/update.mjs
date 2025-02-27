@@ -1,13 +1,17 @@
+import { prepareAuthHeaders } from "../../utilities/authUtils.mjs";
 import { API_AUCTION } from "../constants.mjs";
-const API_KEY = import.meta.env.VITE_API_KEY;
 
-export async function editAuction(id, formData, authToken) {
+/**
+ * Edit an auction listing.
+ *
+ * @param {string} id - The ID of the auction to update.
+ * @param {object} formData - The data to update the auction with.
+ * @returns {object} The updated auction data.
+ * @throws {Error} If the API call fails or the response is not successful.
+ */
+export async function editAuction(id, formData) {
   try {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${authToken}`,
-      "X-Noroff-API-Key": API_KEY,
-    };
+    const headers = prepareAuthHeaders();
 
     const response = await fetch(`${API_AUCTION}/${id}`, {
       method: "PUT",
@@ -17,13 +21,20 @@ export async function editAuction(id, formData, authToken) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to update auction listing.");
+      const errorMessage =
+        errorData.message || "Failed to update auction listing.";
+      throw new Error(errorMessage);
     }
 
     const data = await response.json();
-    return data;
+
+    if (!data || !data.data) {
+      throw new Error("Invalid response data");
+    }
+
+    return data.data;
   } catch (error) {
-    console.error("Error editing auction listing:", error);
+    console.error("Error editing auction listing:", error.message || error);
     throw error;
   }
 }

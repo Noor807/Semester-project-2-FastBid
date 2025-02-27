@@ -10,7 +10,7 @@ export async function onDeletePost(event) {
 
   const button = event.target;
   const id = button.dataset.id;
-  const token = localStorage.getItem("token");
+ 
   if (!id) {
     console.error("listID not found.");
     return;
@@ -20,7 +20,7 @@ export async function onDeletePost(event) {
   if (!confirmation) return;
 
   try {
-    const result = await deleteAuction(id, token);
+    const result = await deleteAuction(id,);
 
     if (result) {
       sessionStorage.setItem("deleteList", true);

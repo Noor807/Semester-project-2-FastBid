@@ -1,6 +1,14 @@
-import { API_KEY, API_AUCTION_PROFILE } from "../constants.mjs";
+import { prepareAuthHeaders } from "../../utilities/authUtils.mjs";
+import { API_AUCTION_PROFILE } from "../constants.mjs";
 
-export async function updateProfileAPI(name, avatarUrl, token) {
+/**
+ * Updates the user profile by changing the avatar URL.
+ *
+ * @param {string} name - The name of the user to update the profile for.
+ * @param {string} avatarUrl - The new URL of the user's avatar.
+ * @returns {Promise<Object | null>} The updated profile data, or null if an error occurs.
+ */
+export async function updateProfileAPI(name, avatarUrl) {
   const url = `${API_AUCTION_PROFILE}/${name}`;
   const requestBody = {
     avatar: {
@@ -10,23 +18,24 @@ export async function updateProfileAPI(name, avatarUrl, token) {
   };
 
   try {
+    const headers = prepareAuthHeaders();
+
     const response = await fetch(url, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-        "X-Noroff-API-Key": API_KEY,
-      },
+      headers: headers,
       body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
-      throw new Error(`Error: ${response.statusText}`);
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to update profile");
     }
 
     const data = await response.json();
+
     const adminUser = data.data;
     localStorage.setItem("adminUser", JSON.stringify(adminUser));
+
     return data;
   } catch (error) {
     console.error("Error updating profile:", error);

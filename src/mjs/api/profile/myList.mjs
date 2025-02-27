@@ -1,16 +1,19 @@
+import { prepareAuthHeaders } from "../../utilities/authUtils.mjs";
 import { API_AUCTION_PROFILE, API_KEY } from "../constants";
 
+/**
+ * Fetches the auction listings for the specified user.
+ *
+ * @param {string} name - The username or ID of the user to fetch listings for.
+ * @returns {Promise<Object>} The listings data.
+ * @throws {Error} If the API request fails or if the response is not valid.
+ */
 export async function fetchMyListings(name) {
   const url = `${API_AUCTION_PROFILE}/${name}/listings?_bids=true`;
-  const token = localStorage.getItem("token");
-
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-    "X-Noroff-API-Key": API_KEY,
-  };
 
   try {
+    const headers = prepareAuthHeaders();
+
     const response = await fetch(url, { method: "GET", headers });
 
     if (!response.ok) {

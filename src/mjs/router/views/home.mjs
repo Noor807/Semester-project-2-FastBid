@@ -14,6 +14,7 @@ const navbarLinks = document.getElementById("navbar-links");
 
 hamburgerBtn.addEventListener("click", () => {
   navbarLinks.classList.toggle("hidden");
+  navbarLinks.classList.toggle("flex");
 });
 
 /**

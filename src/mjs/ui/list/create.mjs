@@ -13,10 +13,10 @@ export async function handleCreateListFormSubmit(e) {
     : [];
 
   if (!title || !description) {
-    alert("Title and body are required.");
+    toastMessage("Title and body are required.", 'alert');
     return;
   }
-  const token = localStorage.getItem("token");
+ 
 
   const newPost = {
     title: title,
@@ -27,7 +27,7 @@ export async function handleCreateListFormSubmit(e) {
   };
 
   try {
-    const result = await createList(newPost, token);
+    const result = await createList(newPost);
 
     window.location.href = `/post/index.html?singleList=${result.data.id} `;
     toastMessage("list created successfully!", "success");
