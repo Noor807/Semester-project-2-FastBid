@@ -3,7 +3,7 @@ import { handleEditAuctionFormSubmit } from "../../ui/list/update";
 import { authGuard } from "../../utilities/authGuard";
 import { populateFormWithAuctionData } from "../../utilities/populateform";
 
-setLogoutListener;
+
 authGuard;
 
 const urlParams = new URLSearchParams(window.location.search);

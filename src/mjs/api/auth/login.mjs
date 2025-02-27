@@ -8,8 +8,9 @@
 //  * @throws {Error} Error if the login fails.
 //  */
 
-import { API_AUTH_LOGIN } from "../constants";
 import { fetchAuctionProfile } from "../profile/auctionProfile.mjs";
+import { API_AUTH_LOGIN } from "../constants";
+
 
 export async function login({ email, password }) {
   try {
