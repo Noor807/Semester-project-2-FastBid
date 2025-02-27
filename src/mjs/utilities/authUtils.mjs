@@ -1,5 +1,5 @@
 
-import { API_KEY } from "../constants.mjs";
+import { API_KEY } from "../api/constants.mjs";
 
 
 export function getAuthToken() {
