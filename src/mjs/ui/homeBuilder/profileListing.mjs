@@ -40,7 +40,7 @@ export async function generateAuctionListing(dataArray) {
     button.type = "button";
     button.textContent = "View auction";
     button.className =
-      " static md:absolute cursor-pointer hover:bg-blue-600  md:right-8 md:top-1/2 md:-translate-y-1/2 bg-blue-gray w-fit p-1 m-auto font-semibold  text-white border-2";
+      " static md:absolute cursor-pointer px-4 py-2  hover:bg-blue-600  md:right-8 md:top-1/2 md:-translate-y-1/2 bg-blue-gray w-fit p-2 m-auto font-semibold  text-white border-2";
     button.addEventListener("click", () => {
       window.location.href = `/post/index.html?singleList=${item.id}`;
     });
