@@ -24,6 +24,51 @@
           />
         </a>
 
+        <div class="lg:hidden flex items-center">
+          <button aria-label="toggle-button" id="hamburger-btn" class="text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <ul
+          id="navbar-links"
+          class=" hidden lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6  space-y-4 top-[100%] bg-dark-blue right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex-col justify-center"
+        >
+          <li id="profile-link" class="hidden">
+            <a href="/profile/" class="text-white font-semibold hover:underline"
+              >My Profile</a
+            >
+          </li>
+          <li id="create-post-link" class="hidden">
+            <a
+              href="/post/create/"
+              class="text-white font-semibold hover:underline"
+              >Create Post</a
+            >
+          </li>
+          <li>
+            <button
+              id="admin-btn"
+              type="button"
+              class="bg-yellow-700 text-white py-1 px-4 font-semibold rounded-md hover:bg-orange-500 transition"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
       </div>
     </header>
     <main class="mt-20 px-4 py-8">
