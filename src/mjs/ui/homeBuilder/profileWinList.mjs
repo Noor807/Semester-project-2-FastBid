@@ -1,5 +1,15 @@
 import { getHighestBidValue } from "../../utilities/higherBider";
 
+/**
+ * Renders the list of winning auctions.
+ *
+ * @param {Array<Object>} winningAuctions - List of winning auction objects.
+ * @param {string} winningAuctions[].title - Title of the auction.
+ * @param {Array<Object>} winningAuctions[].media - Array of media objects for the auction.
+ * @param {string} winningAuctions[].media[].url - URL of the auction image.
+ * @param {string} winningAuctions[].media[].alt - Alt text for the auction image.
+ * @param {Array<Object>} winningAuctions[].bids - List of bids placed on the auction.
+ */
 export async function generateWinningAuctions(winningAuctions) {
   const container = document.getElementById("winList");
 
@@ -12,13 +22,14 @@ export async function generateWinningAuctions(winningAuctions) {
     return;
   }
 
+  const fragment = document.createDocumentFragment();
+
   winningAuctions.forEach((auction) => {
     const outerDiv = document.createElement("div");
     outerDiv.classList.add(
       "flex",
       "flex-col",
-      "sm:flex-col",
-      "lg:flex-col",
+      "sm:flex-row",
       "mb-8",
       "border",
       "rounded-lg",
@@ -35,7 +46,7 @@ export async function generateWinningAuctions(winningAuctions) {
     innerDiv1.classList.add(
       "flex",
       "flex-col",
-      "sm:flex-col",
+      "sm:flex-row",
       "sm:items-center",
       "sm:space-x-4",
       "w-full"
@@ -43,11 +54,11 @@ export async function generateWinningAuctions(winningAuctions) {
 
     const title = document.createElement("h3");
     title.classList.add("font-bold", "text-gray-800");
-    title.innerText = auction.title;
+    title.innerText = auction.title || "Untitled Auction";
 
     const img = document.createElement("img");
-    img.src = auction.media[0]?.url || "";
-    img.alt = auction.media[0]?.alt || "Image";
+    img.src = auction.media[0]?.url || "path/to/placeholder-image.jpg";
+    img.alt = auction.media[0]?.alt || "Auction Image";
     img.classList.add(
       "w-32",
       "h-32",
@@ -58,11 +69,13 @@ export async function generateWinningAuctions(winningAuctions) {
       "mb-4",
       "sm:mb-0"
     );
+    img.loading = "lazy";
 
     innerDiv1.appendChild(title);
     innerDiv1.appendChild(img);
 
     const { highestBid } = getHighestBidValue(auction);
+
     const innerDiv2 = document.createElement("div");
     innerDiv2.classList.add(
       "text-gray-700",
@@ -71,15 +84,18 @@ export async function generateWinningAuctions(winningAuctions) {
       "mt-4",
       "sm:mt-0"
     );
+
     const wonPrice = document.createElement("p");
     wonPrice.classList.add("text-sm", "font-semibold", "text-blue-700");
-    wonPrice.textContent = `Won for: $${highestBid}`;
+    wonPrice.textContent = `Won for: $${highestBid || "0.00"}`;
 
     innerDiv2.appendChild(wonPrice);
 
     outerDiv.appendChild(innerDiv1);
     outerDiv.appendChild(innerDiv2);
 
-    container.appendChild(outerDiv);
+    fragment.appendChild(outerDiv);
   });
+
+  container.appendChild(fragment);
 }

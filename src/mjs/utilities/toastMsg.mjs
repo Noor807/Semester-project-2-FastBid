@@ -1,3 +1,11 @@
+/**
+ * Displays a toast message on the screen for user notifications.
+ * The message can be displayed in different types: success, error, or alert.
+ * The toast message will disappear after a specified duration or can be closed manually.
+ *
+ * @param {string} message - The message to display in the toast.
+ * @param {string} [type="success"] - The type of toast (success, error, or alert).
+ */
 export function toastMessage(message, type = "success") {
   const main = document.querySelector("main");
 

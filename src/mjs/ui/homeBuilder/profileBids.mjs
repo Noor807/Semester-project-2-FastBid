@@ -1,3 +1,14 @@
+/**
+ * Generates and renders auction bid elements for each auction in the `auctions` array.
+ * Displays auction details including title, image, and bid amount.
+ *
+ * @param {Array<Object>} auctions - List of auctions with bid details.
+ * @param {string} auctions[].listing.title - Title of the auction listing.
+ * @param {Object} auctions[].listing.media - Media object containing image details.
+ * @param {string} auctions[].listing.media[0].url - URL of the auction's image.
+ * @param {string} auctions[].listing.media[0].alt - Alt text for the auction's image.
+ * @param {number} auctions[].amount - Bid amount for the auction.
+ */
 export async function generateAuctionBids(auctions) {
   const container = document.getElementById("myBids");
 
@@ -33,7 +44,7 @@ export async function generateAuctionBids(auctions) {
     );
 
     const title = document.createElement("h3");
-    title.textContent = auction.listing.title;
+    title.textContent = auction.listing.title || "Untitled Auction";
     title.classList.add("font-semibold", "text-xs");
 
     const img = document.createElement("img");
@@ -54,7 +65,7 @@ export async function generateAuctionBids(auctions) {
     );
 
     const bid = document.createElement("p");
-    bid.textContent = `Bid: $${auction.amount}`;
+    bid.textContent = `Bid: $${auction.amount || "0.00"}`;
     bid.classList.add("text-sm", "font-semibold", "text-blue-800");
 
     innerDiv2.appendChild(bid);

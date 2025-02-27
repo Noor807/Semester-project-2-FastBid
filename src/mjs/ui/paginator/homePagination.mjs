@@ -2,8 +2,9 @@
  * Fetches auction posts for a specific page and tag, then renders them in the DOM.
  * Updates pagination buttons based on metadata.
  *
- * @param {number} [page=1]
- * @param {string} [tag=""]
+ * @param {number} [page=1] - The page number to fetch.
+ * @param {string} [tag=""] - The tag to filter auctions by.
+ * @returns {Promise<void>}
  */
 
 import { fetchAllAuctions } from "../../api/list/allList.mjs";
@@ -35,8 +36,6 @@ export const fetchPosts = async (page = 1) => {
     } else {
       response = await fetchAllAuctions(12, page, null, null, false);
     }
-    // Assuming you have an API function like this to fetch auction listings
-    // const response = await fetchAllAuctions(limit, page, selectedTag);
 
     const { data, meta } = response;
 

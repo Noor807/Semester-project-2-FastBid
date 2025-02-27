@@ -3,19 +3,13 @@ import { updateAdminButton } from "../../ui/global/loginAdmin.mjs";
 import { renderAuctionPosts } from "../../ui/homeBuilder/allListing";
 import { fetchPosts } from "../../ui/paginator/homePagination";
 import { authGuard } from "../../utilities/authGuard";
+import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
 import { toastMessage } from "../../utilities/toastMsg.mjs";
+
+setupHamburgerMenu();
 updateAdminButton();
-
-authGuard;
+authGuard();
 fetchPosts();
-
-const hamburgerBtn = document.getElementById("hamburger-btn");
-const navbarLinks = document.getElementById("navbar-links");
-
-hamburgerBtn.addEventListener("click", () => {
-  navbarLinks.classList.toggle("hidden");
-  navbarLinks.classList.toggle("flex");
-});
 
 /**
  * Fetches auction listings with authentication and renders them to the DOM.

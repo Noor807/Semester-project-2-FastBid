@@ -1,3 +1,11 @@
+/**
+ * Handles the form submission for editing an auction. Validates the form data, checks for login status,
+ * and updates the auction using the editAuction API.
+ *
+ * @param {Event} e - The event triggered by submitting the edit auction form.
+ * @param {string} auctionId - The ID of the auction to be updated.
+ * @returns {Promise<void>}
+ */
 import { editAuction } from "../../api/list/update";
 import { toastMessage } from "../../utilities/toastMsg.mjs";
 

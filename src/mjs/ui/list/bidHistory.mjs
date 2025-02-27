@@ -1,27 +1,28 @@
+/**
+ * Creates and displays a modal showing bid history.
+ *
+ * @param {Array} bids - An array of bid objects, each containing bidder information and bid amount.
+ * @returns {Promise<void>}
+ */
 export async function createBidHistoryModal(bids) {
-  
   const modal = document.createElement("div");
   modal.id = "bidHistoryModal";
   modal.className =
-    "fixed inset-0 bg-black bg-opacity-50 mt-20 lg:mt-30 flex justify-center items-center hidden"; 
+    "fixed inset-0 bg-black bg-opacity-50 mt-20 lg:mt-30 flex justify-center items-center hidden";
 
-  
   const modalContent = document.createElement("div");
   modalContent.className =
-    "bg-white p-4 rounded-lg w-200 max-h-[70vh] overflow-y-auto shadow-lg"; 
+    "bg-white p-4 rounded-lg w-200 max-h-[70vh] overflow-y-auto shadow-lg";
 
-  
   const closeButton = document.createElement("button");
   closeButton.innerText = "Close";
   closeButton.className = "text-red-500 font-semibold float-right";
   closeButton.onclick = () => (modal.style.display = "none");
 
-  
   const sortList = bids.sort((a, b) => b.amount - a.amount);
 
   modalContent.appendChild(closeButton);
 
-  
   sortList.forEach((bid) => {
     const bidContainer = document.createElement("div");
     bidContainer.className =

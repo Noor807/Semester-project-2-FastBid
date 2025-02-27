@@ -1,8 +1,12 @@
-import { createList } from "../../api/list/create";
-import { toastMessage } from "../../utilities/toastMsg.mjs";
-
+/**
+ * Handles the submission of the list creation form and sends the form data to the API to create a new list.
+ *
+ * @param {Event} e - The form submission event.
+ * @returns {Promise<void>}
+ */
 export async function handleCreateListFormSubmit(e) {
   e.preventDefault();
+
   const endsAt = e.target.endsAt.value.trim();
   const title = e.target.title.value.trim();
   const description = e.target.description.value.trim();
@@ -13,10 +17,9 @@ export async function handleCreateListFormSubmit(e) {
     : [];
 
   if (!title || !description) {
-    toastMessage("Title and body are required.", 'alert');
+    toastMessage("Title and body are required.", "alert");
     return;
   }
- 
 
   const newPost = {
     title: title,
@@ -29,10 +32,10 @@ export async function handleCreateListFormSubmit(e) {
   try {
     const result = await createList(newPost);
 
-    window.location.href = `/post/index.html?singleList=${result.data.id} `;
-    toastMessage("list created successfully!", "success");
+    window.location.href = `/post/index.html?singleList=${result.data.id}`;
+    toastMessage("List created successfully!", "success");
   } catch (error) {
     console.error("Error:", error);
-    toastMessage("Failed to create list: " + error.message);
+    toastMessage("Failed to create list: " + error.message, "alert");
   }
 }

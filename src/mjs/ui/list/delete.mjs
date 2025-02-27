@@ -1,7 +1,10 @@
 /**
- * Passes data to the createPost function in api/post and handles the response
+ * Handles the deletion of a post by calling the deleteAuction API and handling the response.
+ * Prompts the user for confirmation before proceeding with the deletion.
+ *
+ * @param {Event} event - The event triggered when the delete button is clicked.
+ * @returns {Promise<void>}
  */
-
 import { deleteAuction } from "../../api/list/delete.mjs";
 import { toastMessage } from "../../utilities/toastMsg.mjs";
 
@@ -10,7 +13,7 @@ export async function onDeletePost(event) {
 
   const button = event.target;
   const id = button.dataset.id;
- 
+
   if (!id) {
     console.error("listID not found.");
     return;
@@ -20,7 +23,7 @@ export async function onDeletePost(event) {
   if (!confirmation) return;
 
   try {
-    const result = await deleteAuction(id,);
+    const result = await deleteAuction(id);
 
     if (result) {
       sessionStorage.setItem("deleteList", true);

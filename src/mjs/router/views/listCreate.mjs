@@ -1,19 +1,20 @@
 import { onLogout } from "../../ui/auth/logout";
 import { handleCreateListFormSubmit } from "../../ui/list/create";
 import { authGuard } from "../../utilities/authGuard";
+import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
 
-onLogout;
-authGuard;
+/**
+ * Initializes all necessary UI functions and event listeners.
+ */
+function initializeUI() {
+  setupHamburgerMenu();
 
-const form = document.getElementById("new-list-form");
+  authGuard();
 
-form.addEventListener("submit", handleCreateListFormSubmit);
+  const form = document.getElementById("new-list-form");
+  form.addEventListener("submit", handleCreateListFormSubmit);
 
-document.getElementById("logout-Btn").addEventListener("click", onLogout);
+  document.getElementById("logout-Btn").addEventListener("click", onLogout);
+}
 
-const hamburgerBtn = document.getElementById("hamburger-btn");
-const navbarLinks = document.getElementById("navbar-links");
-
-hamburgerBtn.addEventListener("click", () => {
-  navbarLinks.classList.toggle("hidden");
-});
+initializeUI();

@@ -4,16 +4,42 @@ import { renderSingleAuction } from "../../ui/homeBuilder/singleList.mjs";
 import { handleBidSubmission } from "../../ui/list/bid.mjs";
 import { createBidHistoryModal } from "../../ui/list/bidHistory.mjs";
 import { onDeletePost } from "../../ui/list/delete.mjs";
+import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
 import { getHighestBidValue } from "../../utilities/higherBider.mjs";
 import { toastMessage } from "../../utilities/toastMsg.mjs";
+
+setupHamburgerMenu();
 updateAdminButton();
 
 const urlSearch = new URLSearchParams(window.location.search);
 const postId = urlSearch.get("singleList");
 
-const auctionData = await fetchSingleAuction(postId);
+async function initialize() {
+  try {
+    const auctionData = await fetchSingleAuction(postId);
 
-async function hidden(data) {
+    await handleAdminActions(auctionData.data);
+
+    const { highestBid } = getHighestBidValue(auctionData.data);
+    document.getElementById("highestBid").textContent = `${highestBid}$`;
+
+    renderSingleAuction(auctionData.data);
+
+    setupDeleteButton(postId);
+
+    setupEditButton(postId);
+
+    setupBidHistoryButton(auctionData.data.bids);
+
+    setupBidForm(auctionData.data);
+
+    showUpdatedSuccessToast();
+  } catch (error) {
+    console.error("Error during auction page initialization:", error);
+  }
+}
+
+async function handleAdminActions(data) {
   const userData = JSON.parse(localStorage.getItem("adminUser"));
   if (!userData) return;
 
@@ -25,70 +51,68 @@ async function hidden(data) {
     adminAction.classList.add("flex");
   }
 }
-hidden(auctionData.data);
 
-const { highestBid } = getHighestBidValue(auctionData.data);
-document.getElementById("highestBid").textContent = `${highestBid}$`;
-
-renderSingleAuction(auctionData.data);
-
-const delButton = document.querySelector(".del-btn");
-if (delButton) {
-  delButton.setAttribute("data-id", postId);
-  delButton.addEventListener("click", onDeletePost);
-}
-
-const editButton = document.querySelector(".edit-btn");
-if (editButton) {
-  editButton.addEventListener("click", () => {
-    window.location.href = `/post/edit/?post=${postId}`;
-  });
-}
-
-const bidHistoryBtn = document.getElementById("bidHistory");
-bidHistoryBtn.addEventListener(
-  "click",
-  createBidHistoryModal(auctionData.data.bids)
-);
-
-const hamburgerBtn = document.getElementById("hamburger-btn");
-const navbarLinks = document.getElementById("navbar-links");
-
-hamburgerBtn.addEventListener("click", () => {
-  navbarLinks.classList.toggle("hidden");
-});
-
-const openBidHistory = localStorage.getItem("trigger");
-if (openBidHistory === "true") {
-  const bidHistoryButton = document.getElementById("bidHistory");
-  if (bidHistoryButton) {
-    bidHistoryButton.click();
-  } else {
-    console.warn("Bid history button not found");
+function setupDeleteButton(postId) {
+  const delButton = document.querySelector(".del-btn");
+  if (delButton) {
+    delButton.setAttribute("data-id", postId);
+    delButton.addEventListener("click", onDeletePost);
   }
-  localStorage.removeItem("trigger");
 }
 
-document
-  .getElementById("placeBid")
-  .addEventListener("submit", async (event) => {
-    event.preventDefault();
+function setupEditButton(postId) {
+  const editButton = document.querySelector(".edit-btn");
+  if (editButton) {
+    editButton.addEventListener("click", () => {
+      window.location.href = `/post/edit/?post=${postId}`;
+    });
+  }
+}
 
-    let bidAmount = document.getElementById("bid-amount").value;
-    const finalBid = parseInt(bidAmount, 10);
-    let currentBalance = parseFloat(localStorage.getItem("credit")) || 0;
-
-    if (!postId || !finalBid) {
-      console.error("Post ID or bid amount is missing");
-      return;
-    }
-
-    await handleBidSubmission(postId, highestBid, finalBid);
-    currentBalance -= finalBid;
-    localStorage.setItem("credit", currentBalance);
+function setupBidHistoryButton(bids) {
+  const bidHistoryBtn = document.getElementById("bidHistory");
+  bidHistoryBtn.addEventListener("click", () => {
+    createBidHistoryModal(bids);
   });
 
-if (sessionStorage.getItem("updatedSuccess") === "true") {
-  toastMessage("List has been updated successfully", "success");
-  sessionStorage.removeItem("updatedSuccess");
+  const openBidHistory = localStorage.getItem("trigger");
+  if (openBidHistory === "true") {
+    if (bidHistoryBtn) {
+      bidHistoryBtn.click();
+    } else {
+      console.warn("Bid history button not found");
+    }
+    localStorage.removeItem("trigger");
+  }
 }
+
+function setupBidForm(auctionData) {
+  document
+    .getElementById("placeBid")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const bidAmount = document.getElementById("bid-amount").value;
+      const finalBid = parseInt(bidAmount, 10);
+      let currentBalance = parseFloat(localStorage.getItem("credit")) || 0;
+
+      if (!finalBid || finalBid <= 0) {
+        console.error("Invalid bid amount");
+        toastMessage("Please enter a valid bid amount", "error");
+        return;
+      }
+
+      await handleBidSubmission(postId, auctionData.highestBid, finalBid);
+      currentBalance -= finalBid;
+      localStorage.setItem("credit", currentBalance);
+    });
+}
+
+function showUpdatedSuccessToast() {
+  if (sessionStorage.getItem("updatedSuccess") === "true") {
+    toastMessage("List has been updated successfully", "success");
+    sessionStorage.removeItem("updatedSuccess");
+  }
+}
+
+initialize();
