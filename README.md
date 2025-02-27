@@ -135,5 +135,5 @@ This will start Vite’s development server, and your project should be accessib
 - [ ] A style guide
 - [ ] A kanban project board
 - [ ] A repository link
-- [ ] A hosted application demo link
+- [ ] A hosted application link
 
