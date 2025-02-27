@@ -2,6 +2,7 @@
 
 
 
+<img width="848" alt="FastBid screenshot" src="https://github.com/user-attachments/assets/d75aa139-8a20-4f49-828c-f90c279b8316" />
 
 
 
@@ -13,22 +14,18 @@
 To Show the skills learned over the past three semesters and create an auction website.
 
 
-
 ### Brief
 An auction website where users can add items to be bid on and bid on items other users have put up for auction.
 
 When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.
 
 
-
 ### Requirements
 All API functionality is managed by an existing application. This project only covers the front-end application for the API.
 
 
-
 ### API
 The API I used for this project can be found under Auction Endpoints in the Noroff API documentation.
-
 
 
 ### User stories
@@ -47,39 +44,25 @@ The client has specified the following requirements in the form of User Stories:
 - [ ] Technical restrictions
 
       
-
 ### Technical restrictions:
 
 - [ ] An approved CSS Framework.
 - [ ] Project hosted on an approved Static Host.
 - [ ] An approved Design Application.
 - [ ] An approved Planning Application
+--------------------
 
 
-
-
- ### Required links:
-
-- [ ] A Gantt chart for project timing
-- [ ] A design prototype
-- [ ] A style guide
-- [ ] A kanban project board
-- [ ] A repository link
-- [ ] A hosted application demo link
-
-
-Approved resources
-This list covers libraries and services that have been vetted by the company and approved for use.
+### Approved resources used in project
+This list covers theses services that have been vetted by the company and approved for use.
 
 
 #### CSS frameworks
 
-Tailwind (version >3.0.0)
-
+"tailwindcss": "^3.4.17",
 
 #### Hosting services
 
-GitHub Pages
 Netlify
 
 #### Design applications
@@ -140,4 +123,17 @@ bash
                          npm run dev
 
 This will start Vite’s development server, and your project should be accessible at (http://localhost:5100/)
+
+
+
+---------------------------
+
+ ### Required links:
+
+- [ ] A Gantt chart for project timing
+- [ ] A design prototype
+- [ ] A style guide
+- [ ] A kanban project board
+- [ ] A repository link
+- [ ] A hosted application demo link
 
