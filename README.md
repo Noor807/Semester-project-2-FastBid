@@ -14,121 +14,102 @@
 To Show the skills learned over the past three semesters and create an auction website.
 
 
-### Brief
-An auction website where users can add items to be bid on and bid on items other users have put up for auction.
+## FastBid Overview 🌍
 
-When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.
+FastBid is an auction platform where users can list items for bidding and place bids on other users' listings. Users start with 1000 credits, which they can use to bid or earn by selling items. The platform is designed to be user-friendly, accessible, and fully responsive.
 
-
-### Requirements
-All API functionality is managed by an existing application. This project only covers the front-end application for the API.
+This project is developed as part of the Semester Project 2 for Noroff, demonstrating full front-end development with API integration.
 
 
-### API
-The API I used for this project can be found under Auction Endpoints in the Noroff API documentation.
 
 
-### User stories
+-------
+## Tech Used 💻
 
-The client has specified the following requirements in the form of User Stories:
+- [ ] HTML5
 
-- [ ] A user with a stud.noroff.no email may register
-- [ ] A registered user may login
-- [ ] A registered user may logout
-- [ ] A registered user may update their avatar
-- [ ] A registered user may view their total credit
-- [ ] A registered user may create a Listing with a title, deadline date, media gallery and description
-- [ ] A registered user may add a Bid to another user’s Listing
-- [ ] A registered user may view Bids made on a Listing
-- [ ] An unregistered user may search through Listings
-- [ ] Technical restrictions
+- [ ] Tailwind CSS
 
-      
-### Technical restrictions:
+- [ ] Vite
 
-- [ ] An approved CSS Framework.
-- [ ] Project hosted on an approved Static Host.
-- [ ] An approved Design Application.
-- [ ] An approved Planning Application
---------------------
+- [ ] Netlify
+
+- [ ] RESTful API (Noroff)
+
+-----------------
+
+## Features
+
+#### User Authentication:
+- Secure login & registration for buyers and sellers.
+ 
+#### Listing Management:
+- Users can create, edit, and update their own auction listings
+
+#### Bidding System:
+- 💰 Place bids, track bid history, and view highest bids.
+
+#### User Profiles:
+-  View seller information and bid history.
+   
+#### Non Users:
+- Non-registered users can browse listings and single list but cannot place a bid.
+ 
+----------------
 
 
-### Approved resources used in project
-This list covers theses services that have been vetted by the company and approved for use.
 
+## Setup of App ✨
 
-#### CSS frameworks
+### User Authentication:
 
-"tailwindcss": "^3.4.17",
+- [ ] Register with a stud.noroff.no email
+- [ ] Login/logout functionality
 
-#### Hosting services
+### Auction Listings:
 
-Netlify
+- [ ] Create, Read, Update, and Delete (CRUD) listings
+- [ ] Set a bidding deadline
+- [ ] Add media and descriptions
+- [ ] View highest bid and total bids
 
-#### Design applications
+### Bidding System:
 
-Figma
+- [ ] Users can place bids on active auctions
+- [ ] View bid history with avatars and usernames
+- [ ] Prevents users from bidding against themselves
 
-#### Planning applications
+### Dynamic UI Elements:
 
-GitHub Projects
+- [ ] Search Bar: Filter listings
+
+- [ ] Tag Bar: Display categories
+
+- [ ] Logged In vs Logged Out Views
+
+- [ ] Responsive Design: Works on all screen sizes
+
+### Admin Functionality:
+
+Secure profile editing and listing management
+
+### Accessibility & WCAG Compliance:
+
+Uses semantic HTML for better screen reader compatibility
+Ensures contrast and readability with tools like WAVE
+Responsive UI optimized for all devices
 
 -------------
 
 
-### 1. Initialize Node.js Project
-First, initialize a new Node.js project to create the package.json file:
-
-bash
-
-                 npm init -y
-
-This command will create a basic package.json with default values. You can edit this file later to add dependencies and scripts.
-
-### 2. Install Dependencies for Vite and Tailwind CSS
-Need to install Vite for development and Tailwind CSS for styling.
-
-### Install Vite (Development Server & Bundler):
-
-bash
-
-                npm install vite --save-dev
-
-This installs Vite as a development dependency.
-
-### Install Tailwind CSS, PostCSS, and Autoprefixer:
-
-bash
-
-
-               npm install -D tailwindcss postcss autoprefixer
-
-This installs Tailwind CSS along with PostCSS (for processing CSS) and Autoprefixer (for adding browser prefixes).
-
-### 3. Create tailwind.config.js File
-To customize Tailwind's settings, generate the configuration file:
-
-bash
-
-                    npx tailwindcss init
-
-This will create a tailwind.config.js file where you can configure your Tailwind theme, colors, breakpoints, etc.
-
-
-### 4. Start Project
-Once everything is set up, run the development server:
-
-bash
-
-                         npm run dev
-
-This will start Vite’s development server, and your project should be accessible at (http://localhost:5100/)
 
 
 
----------------------------
 
- ### Required links:
+
+
+
+ ## Required links:
 
 - [ ] A Gantt chart for project timing
 - [ ] A design prototype
