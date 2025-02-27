@@ -90,3 +90,54 @@ Figma
 
 GitHub Projects
 
+-------------
+
+
+### 1. Initialize Node.js Project
+First, initialize a new Node.js project to create the package.json file:
+
+bash
+
+                 npm init -y
+
+This command will create a basic package.json with default values. You can edit this file later to add dependencies and scripts.
+
+### 2. Install Dependencies for Vite and Tailwind CSS
+Need to install Vite for development and Tailwind CSS for styling.
+
+### Install Vite (Development Server & Bundler):
+
+bash
+
+                npm install vite --save-dev
+
+This installs Vite as a development dependency.
+
+### Install Tailwind CSS, PostCSS, and Autoprefixer:
+
+bash
+
+
+               npm install -D tailwindcss postcss autoprefixer
+
+This installs Tailwind CSS along with PostCSS (for processing CSS) and Autoprefixer (for adding browser prefixes).
+
+### 3. Create tailwind.config.js File
+To customize Tailwind's settings, generate the configuration file:
+
+bash
+
+                    npx tailwindcss init
+
+This will create a tailwind.config.js file where you can configure your Tailwind theme, colors, breakpoints, etc.
+
+
+### 4. Start Project
+Once everything is set up, run the development server:
+
+bash
+
+                         npm run dev
+
+This will start Vite’s development server, and your project should be accessible at (http://localhost:5100/)
+
