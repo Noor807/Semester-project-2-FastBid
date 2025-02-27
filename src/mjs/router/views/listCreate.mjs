@@ -1,10 +1,10 @@
-import { API_KEY } from "../../api/constants.mjs";
+
 import { onLogout } from "../../ui/auth/logout";
 import { handleCreateListFormSubmit } from "../../ui/list/create";
 import { authGuard } from "../../utilities/authGuard";
 import { prepareAuthHeaders } from "../../utilities/authUtils.mjs";
 import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
-API_KEY
+
 prepareAuthHeaders
 
 /**
