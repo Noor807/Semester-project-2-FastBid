@@ -1,14 +1,22 @@
-import { API_AUCTION, API_KEY } from "../constants.mjs";
+import { API_AUCTION } from "../constants.mjs";
+import { prepareAuthHeaders } from "../auth/authUtils.mjs";
 
-export async function createList(formData, authToken) {
+/**
+ * Creates a new auction listing.
+ * @param {Object} formData - The data to create the auction listing.
+ * @returns {Promise<Object>} - The result of the auction listing creation.
+ * @throws {Error} - If the request or the API fails.
+ */
+export async function createList(formData) {
+  if (!formData || typeof formData !== "object") {
+    throw new Error("Invalid form data provided.");
+  }
+
+  const url = API_AUCTION;
+  const headers = prepareAuthHeaders();
+
   try {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${authToken}`,
-      "X-Noroff-API-Key": API_KEY,
-    };
-
-    const response = await fetch(API_AUCTION, {
+    const response = await fetch(url, {
       method: "POST",
       headers: headers,
       body: JSON.stringify(formData),
@@ -16,13 +24,13 @@ export async function createList(formData, authToken) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || "Failed to create list.");
+      throw new Error(errorData.message || "Failed to create auction listing.");
     }
 
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error creating list:", error);
-    throw error;
+    console.error("Error creating auction listing:", error);
+    throw new Error(`Failed to create auction listing: ${error.message}`);
   }
 }
