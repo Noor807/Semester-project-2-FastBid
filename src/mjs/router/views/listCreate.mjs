@@ -5,7 +5,7 @@ import { authGuard } from "../../utilities/authGuard";
 import { prepareAuthHeaders } from "../../utilities/authUtils.mjs";
 import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
 
-prepareAuthHeaders
+
 
 /**
  * Initializes all necessary UI functions and event listeners.
