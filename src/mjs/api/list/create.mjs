@@ -1,5 +1,5 @@
 import { API_AUCTION } from "../constants.mjs";
-import { prepareAuthHeaders } from "../auth/authUtils.mjs";
+import { prepareAuthHeaders } from "../../utilities/authUtils.mjs";
 
 /**
  * Creates a new auction listing.
