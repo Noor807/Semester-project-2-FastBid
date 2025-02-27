@@ -4,6 +4,8 @@ import { authGuard } from "../../utilities/authGuard";
 import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
 import { populateFormWithAuctionData } from "../../utilities/populateform";
 import { onLogout } from "../../ui/auth/logout";
+import { prepareAuthHeaders } from "../../utilities/authUtils.mjs";
+prepareAuthHeaders();
 
 setupHamburgerMenu();
 authGuard();
