@@ -104,6 +104,83 @@ Responsive UI optimized for all devices
 
 -------------
 
+### Take a Start
+
+### 🔹 Clone or Download
+
+To get a copy of this project, you can **clone** or **fork** the repository:
+
+```bash
+https://github.com/Noor807/Semester-project-2-FastBid.git
+```
+
+Alternatively, download the ZIP file and extract it.
+
+### 🔹 Install Dependencies
+
+```bash
+npm install
+```
+
+> **Installed dependencies:**
+>
+> - Tailwind
+> - Vite
+
+### 🔹 Run the Development Server
+
+```bash
+npm run dev
+```
+
+---
+
+### Environment Variables
+
+This project requires an **API key** for restricted actions.
+
+1. Get your API key from [Noroff API Key Tool](https://docs.noroff.dev/docs/v2/auth/api-key#api-key-tool).
+2. Create a `.env` file in the root directory.
+3. Add the following line:
+
+```bash
+VITE_API_KEY=<your_api_key>
+```
+
+Replace `<your_api_key>` with the actual API key.
+
+4. Add `.env` in `.gitignore` to stop it from being pushed publicly.
+
+---
+
+## API Reference
+
+This project interacts with the **Noroff Auction House API**, which provides endpoints for managing auction listings.  
+For detailed documentation, visit: [Noroff Auction House API](https://docs.noroff.dev/docs/v2/auction-house/listings).
+
+
+### Base URL:
+```
+https://api.noroff.dev/api/v2
+``` 
+⚠️ Some of the endpoints requires authenticated keys to use.
+Read more in the link above about which requires authentication and more on url parameters.
+
+-------------
+
+
+## OverView project:
+
+- [ ] Design:🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1
+
+- [ ] Github:🔗 https://github.com/Noor807/Semester-project-2-FastBid
+
+- [ ] Live:🔗 https://2fast2bid.netlify.app
+
+
+### 📩 Contact here:
+
+🔗  https://github.com/Noor807
 
 
 
@@ -111,13 +188,5 @@ Responsive UI optimized for all devices
 
 
 
-
- ## Required links:
-
-- [ ] A Gantt chart for project timing
-- [ ] A design prototype
-- [ ] A style guide
-- [ ] A kanban project board
-- [ ] A repository link
-- [ ] A hosted application link
+ 
 
