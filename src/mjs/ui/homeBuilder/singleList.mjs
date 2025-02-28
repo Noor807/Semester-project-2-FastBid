@@ -60,7 +60,7 @@ export function renderSingleAuction(auction) {
   rightDiv.className = "flex-1";
 
   const titleElement = document.createElement("h2");
-  titleElement.className = "text-xl font-bold ml-5 text-gray-800 mb-4";
+  titleElement.className = "text-sm font-bold ml-5 text-gray-800 mb-4";
   titleElement.textContent = title;
   rightDiv.appendChild(titleElement);
 
