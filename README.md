@@ -171,11 +171,11 @@ Read more in the link above about which requires authentication and more on url 
 
 ## OverView project:
 
-- [ ] Design: https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1
+- [ ] Design:🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1
 
-- [ ] Github: https://github.com/Noor807/Semester-project-2-FastBid
+- [ ] Github:🔗 https://github.com/Noor807/Semester-project-2-FastBid
 
-- [ ] Live: https://2fast2bid.netlify.app
+- [ ] Live:🔗 https://2fast2bid.netlify.app
 
 
 
@@ -184,7 +184,7 @@ Read more in the link above about which requires authentication and more on url 
 
 ### 📩 Contact here:
 
-🔗
+🔗  https://github.com/Noor807
 
 
 
