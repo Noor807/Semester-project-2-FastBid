@@ -135,7 +135,7 @@ npm run dev
 
 ---
 
- Environment Variables
+### Environment Variables
 
 This project requires an **API key** for restricted actions.
 
