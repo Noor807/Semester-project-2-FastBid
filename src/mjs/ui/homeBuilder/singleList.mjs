@@ -1,4 +1,5 @@
 /**
+ * 
  * Renders the details of a single auction on the page.
  *
  * @param {Object} auction - The auction object containing all the details to display.
@@ -106,20 +107,3 @@ export function renderSingleAuction(auction) {
   auctionDetailContainer.appendChild(bidsElement);
 }
 
-/**
- * Initializes the auction page by fetching and rendering the auction details.
- * It expects the auction ID to be passed as a query parameter in the URL.
- *
- */
-export function initSingleAuctionPage() {
-  const urlSearch = new URLSearchParams(window.location.search);
-  const auctionId = urlSearch.get("post");
-
-  if (auctionId) {
-    fetchAndRenderSingleAuction(auctionId);
-  } else {
-    console.error("Auction ID is missing in the URL.");
-  }
-}
-
-document.addEventListener("DOMContentLoaded", initSingleAuctionPage);
