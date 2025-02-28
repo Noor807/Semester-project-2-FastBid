@@ -13,11 +13,12 @@ export async function fetchAndDisplayMyWins() {
   try {
     const data = await fetchWinAuction(userdata.name);
 
+
     if (!data) {
       throw new Error("Failed to fetch winning auctions.");
     }
 
-    generateWinningAuctions(data.data);
+    generateWinningAuctions(data);
   } catch (error) {
     console.error("Error fetching winning auctions:", error);
   }

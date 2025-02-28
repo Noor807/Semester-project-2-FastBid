@@ -15,6 +15,7 @@ export async function generateWinningAuctions(winningAuctions) {
 
   container.innerHTML = "";
 
+
   if (winningAuctions.length === 0) {
     container.className =
       "w-full h-20 bg-red-500 text-white flex justify-center items-center";
