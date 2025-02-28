@@ -2,13 +2,12 @@ import { fetchAllAuctions } from "../../api/list/allList";
 import { updateAdminButton } from "../../ui/global/loginAdmin.mjs";
 import { renderAuctionPosts } from "../../ui/homeBuilder/allListing";
 import { fetchPosts } from "../../ui/paginator/homePagination";
-import { authGuard } from "../../utilities/authGuard";
 import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
 import { toastMessage } from "../../utilities/toastMsg.mjs";
 
 setupHamburgerMenu();
 updateAdminButton();
-authGuard();
+
 fetchPosts();
 
 /**

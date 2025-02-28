@@ -1,1 +1,0 @@
-import{d as e}from"./constants-BFXYqvjv.js";function o(){const t=localStorage.getItem("token");if(!t)throw new Error("User is not authenticated. Token is missing.");return t}function r(){return{"Content-Type":"application/json",Authorization:`Bearer ${o()}`,"X-Noroff-API-Key":e}}export{r as p};
