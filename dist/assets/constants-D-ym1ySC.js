@@ -1,1 +1,0 @@
-const a="b2e5ca6e-7ba7-46fc-9cae-8ef8a7919673",s="https://v2.api.noroff.dev",t=`${s}/auth`,o=`${t}/login`,A=`${t}/register`,c=`${s}/auction/listings`,n=`${s}/auction/profiles`;export{c as A,n as a,a as b,o as c,A as d};

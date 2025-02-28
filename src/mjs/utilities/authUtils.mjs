@@ -1,4 +1,3 @@
-import { API_KEY } from "../api/constants.mjs";
 
 /**
  * Retrieves the authentication token from local storage.
@@ -9,7 +8,7 @@ import { API_KEY } from "../api/constants.mjs";
  */
 
 import { API_KEY } from "../api/constants.mjs";
-
+const KEY = API_KEY
 export function getAuthToken() {
   const token = localStorage.getItem("token");
   if (!token) {
@@ -30,6 +29,6 @@ export function prepareAuthHeaders() {
   return {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
-    "X-Noroff-API-Key": API_KEY,
+    "X-Noroff-API-Key": KEY,
   };
 }

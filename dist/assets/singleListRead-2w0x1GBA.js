@@ -1,1 +1,0 @@
-import{A as r}from"./constants-D-ym1ySC.js";async function a(o){try{const t=await fetch(`${r}/${o}?_seller=true&_bids=true`,{method:"GET",headers:{"Content-Type":"application/json"}});if(!t.ok)throw new Error(`Failed to fetch auction with ID: ${o}`);return await t.json()}catch(t){throw console.error("Error fetching single auction:",t),t}}export{a as f};
