@@ -111,7 +111,7 @@ Responsive UI optimized for all devices
 To get a copy of this project, you can **clone** or **fork** the repository:
 
 ```bash
-
+https://github.com/Noor807/Semester-project-2-FastBid.git
 ```
 
 Alternatively, download the ZIP file and extract it.
@@ -166,7 +166,21 @@ https://api.noroff.dev/api/v2
 ⚠️ Some of the endpoints requires authenticated keys to use.
 Read more in the link above about which requires authentication and more on url parameters.
 
----
+-------------
+
+
+## OverView project:
+
+- [ ] Design: https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1
+
+- [ ] Github:
+
+- [ ] Live:
+
+
+
+
+
 
 ### 📩 Contact here:
 
