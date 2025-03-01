@@ -48,6 +48,7 @@ export function renderSingleAuction(auction) {
   }
   img.className = "w-full h-96 object-cover mb-6";
   img.loading = "lazy";
+  img.alt = "";
 
   const contentDiv = document.createElement("div");
   contentDiv.className = "flex flex-col md:flex-row gap-6 md:gap-7";
