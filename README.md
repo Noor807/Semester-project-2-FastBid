@@ -2,7 +2,7 @@
 
 
 
-<img width="848" alt="FastBid screenshot" src="https://github.com/user-attachments/assets/d75aa139-8a20-4f49-828c-f90c279b8316" />
+
 
 
 
