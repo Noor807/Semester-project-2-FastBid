@@ -30,7 +30,6 @@ export async function generateWinningAuctions(winningAuctions) {
     outerDiv.classList.add(
       "flex",
       "flex-col",
-      "sm:flex-row",
       "mb-8",
       "border",
       "rounded-lg",
