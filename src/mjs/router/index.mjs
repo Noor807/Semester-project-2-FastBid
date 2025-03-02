@@ -30,6 +30,9 @@ export default async function router(pathname = window.location.pathname) {
     case "/privacy/":
       await import("./views/privacy.mjs");
       break;
+      case "/about/":
+      await import("./views/about.mjs");
+      break;
     default:
       await import("./views/notFound.mjs");
   }

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About FastBid</title>
+    <link rel="icon" sizes="32x32" href="/public/imgs/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/app.mjs"></script>
+  </head>
+  <body class="min-h-screen bg-white">
+    <header class="font-custom">
+      <div
+        class="navbar bg-dark-blue p-4 flex justify-between w-full fixed top-0 z-10 items-center"
+      >
+        <a href="/" class="text-white">
+          <img
+            class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
+            src="/public/imgs/logo.png"
+            alt="noroff logo"
+          />
+        </a>
+
+        <div class="lg:hidden flex items-center">
+          <button
+            aria-label="toggle-button"
+            id="hamburger-btn"
+            class="text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <ul
+          id="navbar-links"
+          class="hidden lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 space-y-4 top-[100%] bg-dark-blue right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex-col justify-center"
+        >
+          <li>
+            <a
+              href="/post/create/"
+              class="text-white font-semibold hover:underline"
+              >Create Post</a
+            >
+          </li>
+          <li>
+            <button
+              id="logout-Btn"
+              type="button"
+              class="bg-yellow-700 text-white py-1 px-4 font-semibold rounded-md hover:bg-orange-500 transition"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="px-4 py-6 space-y-8">
+        <h1 class="text-4xl font-bold text-center text-gray-800">About Us</h1>
+        
+        <p class="text-lg text-gray-700 leading-relaxed">
+            Welcome to <span class="font-bold text-blue-500">[Your Auction Website Name]</span>, the premier online auction platform where buyers
+            and sellers connect to explore an exciting array of products and services. Whether you’re searching for rare collectibles,
+            luxury goods, or everyday essentials, our platform provides a seamless and secure experience for both bidders and sellers.
+        </p>
+    
+        <!-- Section 1: Our Mission -->
+        <section class="bg-blue-100 p-6 rounded-lg shadow-md mt-6 relative transform rotate-3">
+            <h2 class="text-3xl font-bold text-gray-800">Our Mission</h2>
+            <p class="text-lg text-gray-700 mt-4">
+                At <span class="font-bold text-blue-500">[Your Auction Website Name]</span>, we strive to make the auction process as easy and accessible as possible. 
+                Our mission is to bring people together from around the world, offering a diverse selection of items for auction in a transparent 
+                and user-friendly environment. We believe in fostering trust, excitement, and fairness in every transaction, ensuring that all 
+                parties have a rewarding experience.
+            </p>
+        </section>
+    
+        <!-- Section 2: What We Offer -->
+        <section class="bg-yellow-100 p-6 rounded-lg shadow-md mt-6 relative transform rotate-6">
+            <h3 class="text-2xl font-semibold text-gray-800">What We Offer</h3>
+            <p class="text-lg text-gray-700 mt-4">
+                <strong>Variety of Auctions:</strong> From art and antiques to electronics and fashion, we host a wide range of auctions to cater to every interest.
+            </p>
+            <p class="text-lg text-gray-700 mt-2">
+                <strong>Real-Time Bidding:</strong> Participate in live auctions and place your bids in real-time from anywhere, at any time.
+            </p>
+            <p class="text-lg text-gray-700 mt-2">
+                <strong>Secure Transactions:</strong> Our platform is built with the latest technology to ensure your personal information and payment details are safe.
+            </p>
+            <p class="text-lg text-gray-700 mt-2">
+                <strong>Expert Support:</strong> Have questions? Our dedicated customer support team is here to help you with any inquiries or issues you may encounter.
+            </p>
+        </section>
+    
+        <!-- Section 3: Why Choose Us -->
+        <section class="bg-green-100 p-6 rounded-lg shadow-md mt-6 relative transform rotate-12">
+            <h3 class="text-2xl font-semibold text-gray-800">Why Choose Us?</h3>
+            <p class="text-lg text-gray-700 mt-4">
+                <strong>Global Reach:</strong> No matter where you are, you can join our auctions and bid on items from sellers around the world.
+            </p>
+            <p class="text-lg text-gray-700 mt-2">
+                <strong>User-Friendly Interface:</strong> We believe in simplicity. Our website is designed to be intuitive, making it easy for you to browse, bid, and win.
+            </p>
+            <p class="text-lg text-gray-700 mt-2">
+                <strong>Fairness & Transparency:</strong> We are committed to providing a transparent bidding process. Our platform ensures that everyone has a fair chance to win at an auction.
+            </p>
+            <p class="text-lg text-gray-700 mt-2">
+                <strong>Customer-Centric:</strong> Your satisfaction is our top priority. We offer dedicated support to guide you through every step of your auction journey.
+            </p>
+        </section>
+    
+        <!-- Section 4: Our Commitment -->
+        <section class="bg-purple-100 p-6 rounded-lg shadow-md mt-6 relative transform rotate-3">
+            <h3 class="text-2xl font-semibold text-gray-800">Our Commitment</h3>
+            <p class="text-lg text-gray-700 mt-4">
+                We are continuously working to enhance our platform, adding new features and categories to meet the growing needs of our community. 
+                Your feedback is valuable to us, and we encourage you to share your thoughts and suggestions so we can keep improving.
+            </p>
+        </section>
+    
+        <!-- Closing -->
+        <p class="text-lg text-gray-700 mt-6">
+            Thank you for choosing <span class="font-bold text-blue-500">[Your Auction Website Name]</span>. We look forward to being a part of your next auction experience.
+        </p>
+    </main>
+    
+    <footer class="bg-dark-blue text-bright-blue font-custom gap-5 py-8 mt-12">
+      <div
+        class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center"
+      >
+        <div
+          class="flex flex-col md:flex-col mb-6 md:mb-0 space-y-2 md:space-y-0 md:space-x-8 text-center md:text-left"
+        >
+          <a class="underline text-bright-blue" href="../privacy/index.html">Privacy Policy</a>
+          <a class="underline text-bright-blue" href="">About Us</a>
+        </div>
+
+        <div class="text-center md:text-left">
+          <p class="underline">Contact Us</p>
+          <p>+123456789</p>
+          <p>info@fastbid.com</p>
+        </div>
+      </div>
+
+      <div class="border-t border-white my-4"></div>
+
+      <div class="flex justify-center my-4">
+        <img
+          class="max-w-[200px] md:max-w-[300px]"
+          src="/public/imgs/socials.png"
+          alt="Group Image"
+        />
+      </div>
+
+      <div class="mt-10 flex gap-10 left-0 bottom-0 ml-5 mb-2">
+        <a href="/" class="text-white">
+          <img
+            class="logo h-12 max-w-full sm:h-16 md:h-20 lg:h-26 xl:h-28"
+            src="/public/imgs/logo.png"
+            alt="noroff logo"
+          />
+        </a>
+      </div>
+
+      <p class="text-center text-white mt-4">
+        Copyright © 1995-2025 FastBid. All Rights Reserved
+      </p>
+    </footer>
+  </body>
+</html>
