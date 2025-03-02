@@ -3,6 +3,7 @@
 
 
 
+<img width="1464" alt="Screenshot 2025-03-02 at 22 16 24" src="https://github.com/user-attachments/assets/8ada5900-34fe-4187-aa20-0559262f2d8a" />
 
 
 
@@ -171,6 +172,8 @@ Read more in the link above about which requires authentication and more on url 
 
 ## OverView project:
 
+- [ ]Style guide: 🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=133-90&p=f&t=nSyFys9EUMC8aSfJ-0
+      
 - [ ] Design:🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1
 
 - [ ] Github:🔗 https://github.com/Noor807/Semester-project-2-FastBid
