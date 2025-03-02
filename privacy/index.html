@@ -51,7 +51,12 @@
           id="navbar-links"
           class="hidden lg:flex lg:flex-row absolute lg:static w-full place-items-center pb-3 lg:space-x-6 space-y-4 top-[100%] bg-dark-blue right-0 lg:space-y-0 lg:justify-end lg:ml-auto flex-col justify-center"
         >
-          <li>
+          <li id="profile-link" class="hidden">
+            <a href="/profile/" class="text-white font-semibold hover:underline"
+              >My Profile</a
+            >
+          </li>
+          <li id="create-post-link" class="hidden">
             <a
               href="/post/create/"
               class="text-white font-semibold hover:underline"
@@ -60,7 +65,7 @@
           </li>
           <li>
             <button
-              id="logout-Btn"
+              id="admin-btn"
               type="button"
               class="bg-yellow-700 text-white py-1 px-4 font-semibold rounded-md hover:bg-orange-500 transition"
             >
@@ -70,6 +75,7 @@
         </ul>
       </div>
     </header>
+
     <main class="mt-20 bg-white font-custom px-4 py-4">
       <div
         class="container m-auto flex flex-col bg-light-blue p-8 rounded-lg shadow-lg"
