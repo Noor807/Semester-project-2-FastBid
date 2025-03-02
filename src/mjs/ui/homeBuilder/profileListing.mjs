@@ -22,7 +22,7 @@ export async function generateAuctionListing(dataArray) {
   dataArray.forEach((item) => {
     const section = document.createElement("section");
     section.className =
-      "flex flex-col w-full bg-gray-300 border-2 border-gray-400 p-4";
+      "flex flex-col w-full bg-gray-200 border-2 border-gray-400 p-4";
 
     const title = document.createElement("h3");
     title.className = "font-bold";
