@@ -46,7 +46,6 @@ export async function generateWinningAuctions(winningAuctions) {
     innerDiv1.classList.add(
       "flex",
       "flex-col",
-      "sm:flex-row",
       "sm:items-center",
       "sm:space-x-4",
       "w-full"
