@@ -17,6 +17,7 @@ export default defineConfig({
         editPost: resolve(__dirname, "./post/edit/index.html"),
         createPost: resolve(__dirname, "./post/create/index.html"),
         privacy: resolve(__dirname, "./privacy/index.html"),
+        about: resolve(__dirname, "./about/index.html"),
       },
     },
   },
