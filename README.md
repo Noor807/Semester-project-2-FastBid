@@ -172,7 +172,7 @@ Read more in the link above about which requires authentication and more on url 
 
 ## OverView project:
 
-- [ ]Style guide: 🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=133-90&p=f&t=nSyFys9EUMC8aSfJ-0
+- [ ] Style guide: 🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=133-90&p=f&t=nSyFys9EUMC8aSfJ-0
       
 - [ ] Design:🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1
 
