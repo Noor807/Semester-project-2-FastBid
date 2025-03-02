@@ -35,7 +35,7 @@ export async function generateWinningAuctions(winningAuctions) {
       "border",
       "rounded-lg",
       "shadow-md",
-      "bg-teal-100",
+      "bg-green-100",
       "p-4",
       "space-y-4",
       "sm:space-y-0",
