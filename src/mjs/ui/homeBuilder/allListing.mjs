@@ -42,11 +42,11 @@ export function renderAuctionPosts(auctions) {
     });
 
     if (hasEnded) {
-      listingCard.classList.add("relative");
+      listingCard.classList.add("relative","backdrop-blur-xs-[5px]");
       const endedList = document.createElement("div");
       endedList.className =
-        "absolute inset-0 flex justify-center items-center bg-light-blue opacity-80 text-black p-4 text-xs font-semibold";
-      endedList.textContent = "Auction of list is ended";
+        "absolute inset-0 flex justify-center items-center  bg-white/40 text-red-700 p-4 text-xs font-semibold";
+      endedList.textContent = "Auction ended";
       listingCard.appendChild(endedList);
     }
 
