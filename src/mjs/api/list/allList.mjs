@@ -11,7 +11,7 @@ import { API_AUCTION } from "../constants.mjs";
  */
 function constructApiUrl(limit, page, searchQuery, tag) {
   const baseUrl = `${API_AUCTION}`;
-  const commonParams = `limit=${limit}&page=${page}&_seller=true&_bids=true`;
+  const commonParams = `limit=${limit}&page=${page}&_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc`;
 
   if (searchQuery) {
     return `${baseUrl}/search?q=${encodeURIComponent(searchQuery)}&${commonParams}`;
