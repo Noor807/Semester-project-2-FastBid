@@ -95,7 +95,7 @@ This project is developed as part of the Semester Project 2 for Noroff, demonstr
 
 ### Admin Functionality:
 
-Secure profile editing and listing management
+Secure profile editing and listing management.
 
 ### Accessibility & WCAG Compliance:
 
