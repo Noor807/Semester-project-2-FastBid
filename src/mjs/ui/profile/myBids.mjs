@@ -1,11 +1,11 @@
+import { fetchMyBids } from "../../api/profile/bidList";
+import { generateAuctionBids } from "../homeBuilder/profileBids";
+
 /**
  * Fetches and displays the user's bids from the API and renders them in the DOM.
  *
  * @returns {Promise<void>}
  */
-
-import { fetchMyBids } from "../../api/profile/bidList";
-import { generateAuctionBids } from "../homeBuilder/profileBids";
 
 export async function fetchAndDisplayMyBids() {
   const userdata = JSON.parse(localStorage.getItem("adminUser"));

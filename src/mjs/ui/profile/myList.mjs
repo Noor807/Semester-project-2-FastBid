@@ -1,11 +1,11 @@
+import { fetchMyListings } from "../../api/profile/myList";
+import { generateAuctionListing } from "../homeBuilder/profileListing";
+
 /**
  * Fetches and displays the user's auction listings from the API and renders them in the DOM.
  *
  * @returns {Promise<void>}
  */
-
-import { fetchMyListings } from "../../api/profile/myList";
-import { generateAuctionListing } from "../homeBuilder/profileListing";
 
 export async function fetchAndDisplayMyList() {
   const userdata = JSON.parse(localStorage.getItem("adminUser"));
