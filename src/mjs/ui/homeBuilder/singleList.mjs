@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * Renders the details of a single auction on the page.
  *
  * @param {Object} auction - The auction object containing all the details to display.
@@ -107,4 +107,3 @@ export function renderSingleAuction(auction) {
   bidsElement.textContent = `Bids: ${_count.bids}`;
   auctionDetailContainer.appendChild(bidsElement);
 }
-

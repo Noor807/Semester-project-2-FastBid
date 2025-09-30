@@ -42,7 +42,7 @@ export function renderAuctionPosts(auctions) {
     });
 
     if (hasEnded) {
-      listingCard.classList.add("relative","backdrop-blur-xs-[5px]");
+      listingCard.classList.add("relative", "backdrop-blur-xs-[5px]");
       const endedList = document.createElement("div");
       endedList.className =
         "absolute inset-0 flex justify-center items-center  bg-white/40 text-red-700 p-4 text-xs font-semibold";
