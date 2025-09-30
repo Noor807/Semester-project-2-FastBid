@@ -1,7 +1,7 @@
 /**
  * Retrieves the highest bid value and the name of the highest bidder from a given auction data object.
  * If no bids are available, it returns 0 for the highest bid and null for the bidder name.
- * 
+ *
  * @param {Object} data - The auction data containing bids.
  * @param {Array} data.bids - An array of bids in the auction.
  * @returns {Object} An object containing the highest bid value and the name of the highest bidder.

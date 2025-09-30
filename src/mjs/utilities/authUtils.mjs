@@ -1,4 +1,4 @@
-
+import { API_KEY } from "../api/constants.mjs";
 /**
  * Retrieves the authentication token from local storage.
  * Throws an error if the token is not found.
@@ -7,8 +7,7 @@
  * @throws {Error} - If the token is missing in local storage.
  */
 
-import { API_KEY } from "../api/constants.mjs";
-const KEY = API_KEY
+const KEY = API_KEY;
 export function getAuthToken() {
   const token = localStorage.getItem("token");
   if (!token) {

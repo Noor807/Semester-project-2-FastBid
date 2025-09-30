@@ -1,4 +1,12 @@
-// Function to populate the form with auction data
+/**
+ * Populates the edit auction form with existing auction data.
+ *
+ * @param {Object} data - The auction data to populate the form with.
+ * @param {string} data.title - The title of the auction.
+ * @param {string} data.description - The description of the auction.
+ * @param {Array<string>} [data.tags] - An array of tags for the auction.
+ * @param {Array<{url: string, alt: string}>} [data.media] - An array of media objects for the auction.
+ */
 export function populateFormWithAuctionData(data) {
   const form = document.getElementById("edit-auction-form");
 
