@@ -1,3 +1,6 @@
+import { fetchAuctionProfile } from "../profile/auctionProfile.mjs";
+import { API_AUTH_LOGIN } from "../constants";
+
 /**
 //  * Logs in a user with the provided email and password.
 //  *
@@ -7,9 +10,6 @@
 //  * @returns {Promise<Object>} A promise that resolves to the user's login response.
 //  * @throws {Error} Error if the login fails.
 //  */
-
-import { fetchAuctionProfile } from "../profile/auctionProfile.mjs";
-import { API_AUTH_LOGIN } from "../constants";
 
 export async function login({ email, password }) {
   try {
