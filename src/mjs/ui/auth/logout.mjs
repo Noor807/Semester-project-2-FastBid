@@ -3,7 +3,7 @@
  */
 
 export function onLogout() {
-  localStorage.setItem('logout', 'true') 
+  localStorage.setItem("logout", "true");
   localStorage.removeItem("token");
   localStorage.removeItem("credit");
   localStorage.removeItem("adminUser");

@@ -1,3 +1,6 @@
+import { fetchAllAuctions } from "../../api/list/allList.mjs";
+import { renderAuctionPosts } from "../homeBuilder/allListing.mjs";
+
 /**
  * Fetches auction posts for a specific page and tag, then renders them in the DOM.
  * Updates pagination buttons based on metadata.
@@ -6,9 +9,6 @@
  * @param {string} [tag=""] - The tag to filter auctions by.
  * @returns {Promise<void>}
  */
-
-import { fetchAllAuctions } from "../../api/list/allList.mjs";
-import { renderAuctionPosts } from "../homeBuilder/allListing.mjs";
 
 let currentPage = 1;
 const limit = 12;
