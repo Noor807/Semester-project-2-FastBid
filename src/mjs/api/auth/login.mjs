@@ -1,38 +1,67 @@
 import { fetchAuctionProfile } from "../profile/auctionProfile.mjs";
-import { API_AUTH_LOGIN } from "../constants";
+import { API_AUTH_LOGIN, API_KEY } from "../constants.mjs";
 
 /**
-//  * Logs in a user with the provided email and password.
-//  *
-//  * @param {Object} data - The login data.
-//  * @param {string} data.email - The user's email address.
-//  * @param {string} data.password - The user's password.
-//  * @returns {Promise<Object>} A promise that resolves to the user's login response.
-//  * @throws {Error} Error if the login fails.
-//  */
-
+ * Logs in a user and stores token + user info.
+ *
+ * @param {Object} param0
+ * @param {string} param0.email
+ * @param {string} param0.password
+ * @returns {Promise<Object>} The login response data
+ */
 export async function login({ email, password }) {
   try {
+    // 1️⃣ Send login request
     const response = await fetch(API_AUTH_LOGIN, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "X-Noroff-API-Key": API_KEY, // include API key if required
+      },
       body: JSON.stringify({ email, password }),
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || "Login failed");
+    // 2️⃣ Parse response JSON safely
+    let data;
+    try {
+      data = await response.json();
+    } catch {
+      throw new Error("Invalid JSON response from login endpoint");
     }
 
-    const data = await response.json();
+    console.log("Login response:", data);
 
-    localStorage.setItem("token", data.data.accessToken);
-    const adminUser = data.data;
-    localStorage.setItem("adminUser", JSON.stringify(adminUser));
-    await fetchAuctionProfile(data.data.name);
+    // 3️⃣ Check if login failed
+    if (!response.ok) {
+      const msg =
+        data.message ||
+        (data.errors && data.errors[0]?.message) ||
+        "Login failed";
+      throw new Error(`Login failed: ${msg}`);
+    }
+
+    // 4️⃣ Get access token
+    const token = data.data?.accessToken || data.accessToken;
+    if (!token) throw new Error("No access token received");
+
+    // 5️⃣ Save token & user info
+    localStorage.setItem("token", token);
+    localStorage.setItem("adminUser", JSON.stringify(data.data || data));
+
+    // 6️⃣ Fetch auction profile (protected route)
+    const profileName = data.data?.name || data.name;
+    if (profileName) {
+      try {
+        await fetchAuctionProfile(profileName);
+      } catch (err) {
+        console.error("Failed to fetch profile after login:", err.message);
+        // Optional: decide if you want to continue or throw
+      }
+    }
+
     return data;
   } catch (error) {
-    console.error("Error during login:", error);
+    console.error("Error during login process:", error.message);
     throw error;
   }
 }

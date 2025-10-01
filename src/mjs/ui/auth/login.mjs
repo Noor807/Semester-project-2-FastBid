@@ -1,24 +1,17 @@
-/**
- * This function should pass data to the login function in api/auth and handle the response
- */
-
-import { login } from "../../api/auth/login";
+import { login } from "../../api/auth/login.mjs";
 
 export async function onLogin(event) {
   event.preventDefault();
+
   const email = event.target.email.value;
   const password = event.target.password.value;
 
   try {
-    const data = await login({
-      email,
-      password,
-    });
-
+    await login({ email, password });
     sessionStorage.setItem("loggedIn", "true");
-    window.location.href = "/";
+    window.location.href = "/"; // redirect after successful login
   } catch (error) {
     console.error("Login failed:", error);
-    alert("Login failed. Please check your credentials and try again.");
+    alert("Login failed. Please check your credentials.");
   }
 }
