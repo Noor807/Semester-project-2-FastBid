@@ -9,11 +9,11 @@ import { API_KEY } from "../api/constants.mjs";
 
 const KEY = API_KEY;
 export function getAuthToken() {
-  const token = localStorage.getItem("token");
-  if (!token) {
+  const adminUser = JSON.parse(localStorage.getItem("adminUser"));
+  if (!adminUser || !adminUser.accessToken) {
     throw new Error("User is not authenticated. Token is missing.");
   }
-  return token;
+  return adminUser.accessToken;
 }
 
 /**
