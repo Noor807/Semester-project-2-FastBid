@@ -1,4 +1,4 @@
-import { API_AUCTION } from "../constants.mjs";
+import { API_AUCTION } from "../../api/constants.mjs";
 import { toast } from "react-toastify";
 
 /**
