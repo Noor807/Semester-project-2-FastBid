@@ -2,8 +2,9 @@
 
 
 
+<img width="684" height="337" alt="Screenshot 2025-10-04 at 23 36 30" src="https://github.com/user-attachments/assets/e445f5a0-a17d-4b34-b285-d9459775a9fe" />
 
-<img width="1464" alt="Screenshot 2025-03-02 at 22 16 24" src="https://github.com/user-attachments/assets/8ada5900-34fe-4187-aa20-0559262f2d8a" />
+
 
 
 
