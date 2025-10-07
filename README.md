@@ -1,114 +1,90 @@
-# Semester-project-2-FastBid
+# ⚡ FastBid – Auction Platform  
+
+![Project Screenshot](https://github.com/user-attachments/assets/e445f5a0-a17d-4b34-b285-d9459775a9fe)  
+
+---
+
+## 🎯 Goal  
+
+To showcase the skills learned over the past three semesters by developing a **fully functional auction website** with authentication, CRUD functionality, and API integration.  
+
+---
+
+## 🌍 FastBid Overview  
+
+**FastBid** is an auction platform where users can:  
+
+- List items for bidding  
+- Place bids on other users’ listings  
+- Start with **1000 credits** to use for bidding or earn by selling items  
+
+The platform is:  
+✔️ User-friendly  
+✔️ Accessible  
+✔️ Fully responsive  
+
+This project was developed as part of **Semester Project 2 at Noroff**, demonstrating **front-end development with API integration**.  
+
+---
+
+## 🛠️ Tech Stack  
+
+<p align="center">
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)  
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)  
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)  
+[![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://www.netlify.com/)  
+[![REST API](https://img.shields.io/badge/REST%20API-4CAF50?style=for-the-badge)](https://docs.noroff.dev/docs/v2/auction-house/listings)
+
+</p>
 
 
+---
 
-<img width="684" height="337" alt="Screenshot 2025-10-04 at 23 36 30" src="https://github.com/user-attachments/assets/e445f5a0-a17d-4b34-b285-d9459775a9fe" />
+## ✨ Features  
 
+### 🔑 User Authentication  
+- Secure login & registration (restricted to `stud.noroff.no` email accounts)  
+- Login/logout functionality  
 
+### 📦 Listing Management  
+- Create, Read, Update, and Delete (CRUD) listings  
+- Add descriptions, media, and deadlines  
 
+### 💰 Bidding System  
+- Place bids, view highest bid & total bids  
+- Bid history with avatars and usernames  
+- Prevents self-bidding  
 
+### 👤 User Profiles  
+- View seller information  
+- Display bid history  
 
+### 👀 Non-Users  
+- Can browse listings & single listings but **cannot place bids**  
 
+### 🛠️ Dynamic UI Elements  
+- 🔎 **Search bar** for filtering listings  
+- 🏷️ **Tag bar** for categories  
+- 🔄 Different views for logged-in and logged-out users  
+- 📱 **Responsive design** for all screen sizes  
 
+### ⚙️ Admin Functionality  
+- Secure profile editing and listing management  
 
+### ♿ Accessibility  
+- Semantic HTML for screen readers  
+- WCAG contrast checks using **WAVE**  
+- Responsive UI optimized for all devices  
 
-### Goal
-To Show the skills learned over the past three semesters and create an auction website.
+---
 
+## 🚀 Setup & Installation  
 
-## FastBid Overview 🌍
-
-FastBid is an auction platform where users can list items for bidding and place bids on other users' listings. Users start with 1000 credits, which they can use to bid or earn by selling items. The platform is designed to be user-friendly, accessible, and fully responsive.
-
-This project is developed as part of the Semester Project 2 for Noroff, demonstrating full front-end development with API integration.
-
-
-
-
--------
-## Tech Used 💻
-
-- [ ] HTML5
-
-- [ ] Tailwind CSS
-
-- [ ] Vite
-
-- [ ] Netlify
-
-- [ ] RESTful API (Noroff)
-
-
-
-
------------------
-
-## Features
-
-#### User Authentication:
-- Secure login & registration for buyers and sellers.
  
-#### Listing Management:
-- Users can create, edit, and update their own auction listings
+### 🔹 Clone Repository 
 
-#### Bidding System:
-- 💰 Place bids, track bid history, and view highest bids.
-
-#### User Profiles:
--  View seller information and bid history.
-   
-#### Non Users:
-- Non-registered users can browse listings and single list but cannot place a bid.
- 
-----------------
-
-
-
-## Setup of App ✨
-
-### User Authentication:
-
-- [ ] Register with a stud.noroff.no email
-- [ ] Login/logout functionality
-
-### Auction Listings:
-
-- [ ] Create, Read, Update, and Delete (CRUD) listings
-- [ ] Set a bidding deadline
-- [ ] Add media and descriptions
-- [ ] View highest bid and total bids
-
-### Bidding System:
-
-- [ ] Users can place bids on active auctions
-- [ ] View bid history with avatars and usernames
-- [ ] Prevents users from bidding against themselves
-
-### Dynamic UI Elements:
-
-- [ ] Search Bar: Filter listings
-
-- [ ] Tag Bar: Display categories
-
-- [ ] Logged In vs Logged Out Views
-
-- [ ] Responsive Design: Works on all screen sizes
-
-### Admin Functionality:
-
-Secure profile editing and listing management.
-
-### Accessibility & WCAG Compliance:
-
-Uses semantic HTML for better screen reader compatibility
-Ensures contrast and readability with tools like WAVE
-Responsive UI optimized for all devices
-
--------------
-
-### Take a Start
-
-### 🔹 Clone or Download
 
 To get a copy of this project, you can **clone** or **fork** the repository:
 
@@ -170,21 +146,19 @@ Read more in the link above about which requires authentication and more on url 
 
 -------------
 
+## 📐 Project Overview  
 
-## OverView project:
+- 🎨 **Style Guide (Figma):** [View here](https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=133-90&p=f&t=nSyFys9EUMC8aSfJ-0)  
+- 🎨 **Design (Figma):** [View here](https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1)  
+- 💻 **GitHub Repository:** [Semester Project 2 – FastBid](https://github.com/Noor807/Semester-project-2-FastBid)  
+- 🌐 **Live Website (Netlify):** [Visit FastBid](https://2fast2bid.netlify.app)  
 
-- [ ] Style guide: 🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=133-90&p=f&t=nSyFys9EUMC8aSfJ-0
-      
-- [ ] Design:🔗 https://www.figma.com/design/P8weVmQxqUT9icjv6VSS6D/Untitled?node-id=117-182&t=qOna8GC5meNuaSMI-1
+---
 
-- [ ] Github:🔗 https://github.com/Noor807/Semester-project-2-FastBid
+## 📬 Contact  
 
-- [ ] Live:🔗 https://2fast2bid.netlify.app
+- 🐙 **GitHub:** [Noor807](https://github.com/Noor807)  
 
-
-### 📩 Contact here:
-
-🔗  https://github.com/Noor807
 
 
 
