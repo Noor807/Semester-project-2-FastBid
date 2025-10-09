@@ -1,5 +1,5 @@
 import { onLogout } from "../../ui/auth/logout";
-import { handleCreateListFormSubmit} from "../../ui/list/create.mjs";
+import { handleCreateListFormSubmit } from "../../ui/list/create.mjs";
 import { authGuard } from "../../utilities/authGuard";
 import { setupHamburgerMenu } from "../../utilities/hamburgerMenu.mjs";
 
